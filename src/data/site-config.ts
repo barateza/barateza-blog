@@ -1,9 +1,10 @@
+import avatar from '../assets/images/avatar.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
     website: 'https://barateza.org',
     avatar: {
-        src: '/profile.jpg',
+        src: avatar,
         alt: 'Gilson Siqueira'
     },
     title: 'Gilson Siqueira',
