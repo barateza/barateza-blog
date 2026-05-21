@@ -1,19 +1,17 @@
-import avatar from '../assets/images/avatar.jpg';
-import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
+    website: 'https://barateza.org',
     avatar: {
-        src: avatar,
-        alt: 'Ethan Donovan'
+        src: '/profile.jpg',
+        alt: 'Gilson Siqueira'
     },
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    title: 'Gilson Siqueira',
+    subtitle: 'Lead Technical Support Engineer',
+    description: 'Log-first, CLI-native lead engineer. 10+ years in Linux infrastructure, technical support, and AI tooling. Based in Lins, São Paulo, Brazil.',
     image: {
-        src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        src: '/og-preview.jpg',
+        alt: 'Gilson Siqueira — barateza.org'
     },
     headerNavLinks: [
         {
@@ -35,54 +33,50 @@ const siteConfig: SiteConfig = {
     ],
     footerNavLinks: [
         {
-            text: 'About',
-            href: '/about'
+            text: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/barateza'
         },
         {
-            text: 'Contact',
-            href: '/contact'
+            text: 'GitHub',
+            href: 'https://github.com/barateza'
         },
         {
-            text: 'Terms',
-            href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
+            text: 'Email',
+            href: 'mailto:gilson@barateza.org'
         }
     ],
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/barateza'
+        },
+        {
+            text: 'GitHub',
+            href: 'https://github.com/barateza'
         },
         {
             text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            href: 'https://www.instagram.com/_barateza/'
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence.\nMy approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products.\nI have a profound appreciation for top-notch software, visual design, and the principles of product-led growth.\n\nFeel free to explore some of my coding endeavors on [GitHub](https://github.com/JustGoodUI/dante-astro-theme) or follow me on [Twitter/X](https://twitter.com/justgoodui).",
-        image: {
-            src: hero,
-            alt: 'A person sitting at a desk in front of a computer'
-        },
+        title: 'Gilson Siqueira',
+        text: "Lead Technical Support Engineer at **WebPros** — Lins, São Paulo, Brazil.\n\n10+ years in technical support and Linux infrastructure. I pull the logs first, form an opinion second. Fix the root cause, not the symptom. I've been doing this long enough to know the difference matters.\n\n3× Top Engineer of the Quarter. Perfect 1.0 CSAT in 2026. 10% AI ticket deflection. KCS-certified knowledge publisher.\n\nFind me on [LinkedIn](https://www.linkedin.com/in/barateza), [GitHub](https://github.com/barateza), or write to [gilson@barateza.org](mailto:gilson@barateza.org).",
         actions: [
             {
-                text: 'Get in Touch',
-                href: '/contact'
+                text: 'View Projects',
+                href: '/projects'
+            },
+            {
+                text: 'Read the Blog',
+                href: '/blog'
             }
         ]
     },
     subscribe: {
-        enabled: true,
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        enabled: false,
+        title: '',
+        text: '',
         form: {
             action: '#'
         }
