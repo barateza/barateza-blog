@@ -8,7 +8,7 @@ Dante is a single-author blog and portfolio theme for Astro.js. Featuring a mini
 
 Clicking the button above ☝️ will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
 
-## Theme Features:
+## Theme Features
 
 - ✅ Dark and light color mode
 - ✅ Hero section with bio
@@ -27,10 +27,10 @@ Clicking the button above ☝️ will create a new repo for you that looks exact
 
 ## Template Integrations
 
-- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
-- @astrojs/rss - https://docs.astro.build/en/guides/rss/
+- @astrojs/tailwind - <https://docs.astro.build/en/guides/integrations-guide/tailwind/>
+- @astrojs/sitemap - <https://docs.astro.build/en/guides/integrations-guide/sitemap/>
+- @astrojs/mdx - <https://docs.astro.build/en/guides/markdown-content/>
+- @astrojs/rss - <https://docs.astro.build/en/guides/rss/>
 
 ## ⚙️ Configuration Notes
 
@@ -40,12 +40,12 @@ All site-wide data and theme options are stored in `src/data/site-config.ts`. It
 
 You can update this file to customize:
 
-- Site identity — title, description, avatar, subtitle, and default social share image
-- Navigation — header and footer navigation links
-- Social links — URLs for supported platforms
-- Hero section — title, text, image, and action buttons
-- Newsletter subscription — form settings suitable for Mailchimp, Formspree, ConvertKit, or other form-based providers. The form supports a custom action URL, configurable email and hidden fields, and an optional honeypot field for spam protection.
-- Pagination — posts per page for blog and projects listings
+- Site identity: title, description, avatar, subtitle, and default social share image
+- Navigation: header and footer navigation links
+- Social links: URLs for supported platforms
+- Hero section: title, text, image, and action buttons
+- Newsletter subscription: form settings suitable for Mailchimp, Formspree, ConvertKit, or other form-based providers. The form supports a custom action URL, configurable email and hidden fields, and an optional honeypot field for spam protection.
+- Pagination: posts per page for blog and projects listings
 
 Images can be referenced either as imports from `src/assets/` (for optimized Astro images) or as string paths from the `public/` directory.
 

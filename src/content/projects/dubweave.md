@@ -1,6 +1,6 @@
 ---
 title: 'dubweave'
-description: Fully local AI dubbing pipeline. Download, transcribe, translate, and dub YouTube videos — with nothing leaving your machine. No cloud APIs, no subscriptions.
+description: Fully local AI dubbing pipeline. Download, transcribe, translate, and dub YouTube videos, with nothing leaving your machine. No cloud APIs, no subscriptions.
 publishDate: 'Mar 01 2025'
 isFeatured: true
 tags:
@@ -21,16 +21,16 @@ Streaming platforms frequently have content available only in English, with no d
 
 ## The Solution
 
-dubweave is a fully local AI dubbing pipeline: download → transcribe → translate → synthesize → assemble. Built with an empirical approach — every model decision is validated against measurable output quality.
+dubweave is a fully local AI dubbing pipeline: download → transcribe → translate → synthesize → assemble. Built with an empirical approach: every model decision is validated against measurable output quality.
 
 ## Technical Highlights
 
 - **Whisper ASR** for transcription with high accuracy across accents
 - **NLLB-200 / LLM translation** with 8-utterance lookback for context-aware output
-- **Multi-model TTS**: Kokoro, XTTS, Google, ElevenLabs, Gemini, Supertonic — switchable via config
+- **Multi-model TTS**: Kokoro, XTTS, Google, ElevenLabs, Gemini, Supertonic; switchable via config
 - **PT-PT → PT-BR normalizer**: 36 regex rules, validated against 50-sentence corpus with 0 false positives
 - **Empirical calibration**: measured 15.1 chars/sec actual vs 18.0 assumed, fixing 70% systematic overtrimming
 - 4 completed autoresearch loops with KEEP/DISCARD decisions logged in TSV
-- Pipeline resumability — interrupted runs continue from last checkpoint
+- Pipeline resumability: interrupted runs continue from last checkpoint
 
 [View on GitHub](https://github.com/barateza/dubweave)

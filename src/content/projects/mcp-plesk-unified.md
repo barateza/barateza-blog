@@ -21,7 +21,7 @@ Plesk documentation spans thousands of articles with inconsistent terminology. K
 
 ## The Solution
 
-A FastMCP server exposing semantic search over the full Plesk documentation corpus via LanceDB. Claude Desktop/Code connects to it directly — engineers query in natural language and get precise, ranked answers.
+A FastMCP server exposing semantic search over the full Plesk documentation corpus via LanceDB. Claude Desktop/Code connects to it directly: engineers query in natural language and get precise, ranked answers.
 
 ## Technical Highlights
 

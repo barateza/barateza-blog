@@ -26,7 +26,7 @@ Written during a live HTTP flood incident affecting a customer's server. The sta
 
 ## Technical Details
 
-- Pure Shell/Bash — no Python, no dependencies, deploys in seconds
+- Pure Shell/Bash: no Python, no dependencies, deploys in seconds
 - Uses `awk`, `grep`, `sort`, `uniq` pipelines for speed
 - Written incrementally during the actual incident, then cleaned and generalized
 

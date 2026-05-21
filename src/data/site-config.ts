@@ -12,7 +12,7 @@ const siteConfig: SiteConfig = {
     description: 'Log-first, CLI-native lead engineer. 10+ years in Linux infrastructure, technical support, and AI tooling. Based in Lins, São Paulo, Brazil.',
     image: {
         src: '/og-preview.jpg',
-        alt: 'Gilson Siqueira — barateza.org'
+        alt: 'Gilson Siqueira, barateza.org'
     },
     headerNavLinks: [
         {
@@ -62,7 +62,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Gilson Siqueira',
-        text: "Lead Technical Support Engineer at **WebPros** — Lins, São Paulo, Brazil.\n\n10+ years in technical support and Linux infrastructure. I pull the logs first, form an opinion second. Fix the root cause, not the symptom. I've been doing this long enough to know the difference matters.\n\n3× Top Engineer of the Quarter. Perfect 1.0 CSAT in 2026. 10% AI ticket deflection. KCS-certified knowledge publisher.\n\nFind me on [LinkedIn](https://www.linkedin.com/in/barateza), [GitHub](https://github.com/barateza), or write to [gilson@barateza.org](mailto:gilson@barateza.org).",
+        text: "Lead Technical Support Engineer at **WebPros**, working remotely from Lins, São Paulo, Brazil.\n\n10+ years in technical support and Linux infrastructure. I pull the logs first, form an opinion second. Fix the root cause, not the symptom. I've been doing this long enough to know the difference matters.\n\n3× Top Engineer of the Quarter. Perfect 1.0 CSAT in 2026. 10% AI ticket deflection. KCS-certified knowledge publisher.\n\nFind me on [LinkedIn](https://www.linkedin.com/in/barateza), [GitHub](https://github.com/barateza), or write to [gilson@barateza.org](mailto:gilson@barateza.org).",
         actions: [
             {
                 text: 'View Projects',
