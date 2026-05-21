@@ -9,10 +9,6 @@ tags:
   - TTS
   - ffmpeg
   - AI
-seo:
-  image:
-    src: '/project-dubweave.jpg'
-    alt: dubweave AI dubbing pipeline
 ---
 
 ## The Problem
@@ -31,7 +27,6 @@ dubweave is a fully local AI dubbing pipeline: download → transcribe → trans
 - **PT-PT → PT-BR normalizer**: 36 regex rules, validated against 50-sentence corpus with 0 false positives
 - **Empirical calibration**: measured 15.1 chars/sec actual vs 18.0 assumed, fixing 70% systematic overtrimming
 - 4 completed autoresearch loops with KEEP/DISCARD decisions logged in TSV
-- WCAG 2.1 AA accessibility compliance
 - Pipeline resumability — interrupted runs continue from last checkpoint
 
 [View on GitHub](https://github.com/barateza/dubweave)

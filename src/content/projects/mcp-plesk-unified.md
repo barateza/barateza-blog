@@ -9,10 +9,6 @@ tags:
   - FastMCP
   - RAG
   - Vector Search
-seo:
-  image:
-    src: '/project-mcp.jpg'
-    alt: mcp-plesk-unified semantic search
 ---
 
 ## The Problem
@@ -31,6 +27,5 @@ A FastMCP server exposing semantic search over the full Plesk documentation corp
 - **Quality gates**: `--fail-on-gate` flag for CI integration; baseline capture and regression detection
 - **114-test suite** with Ruff + pre-commit CI enforcement
 - Semantic versioning with structured CHANGELOG across 9 releases
-- Custom agent workflow (Beads/bd) with session handoff protocol
 
 [View on GitHub](https://github.com/barateza/mcp-plesk-unified)

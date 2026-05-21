@@ -6,12 +6,7 @@ isFeatured: false
 tags:
   - Shell
   - Bash
-  - awk
   - Security
-seo:
-  image:
-    src: '/project-ddos.jpg'
-    alt: ddos-analysis log triage scripts
 ---
 
 ## The Context
