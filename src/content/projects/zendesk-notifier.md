@@ -8,6 +8,10 @@ tags:
   - Chrome Extension
   - MV3
   - Playwright
+seo:
+  image:
+    src: '../../assets/images/project-1.jpg'
+    alt: Zendesk Real-Time Notifier
 ---
 
 ## The Problem

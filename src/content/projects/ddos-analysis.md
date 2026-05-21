@@ -7,6 +7,10 @@ tags:
   - Shell
   - Bash
   - Security
+seo:
+  image:
+    src: '../../assets/images/project-4.jpg'
+    alt: ddos-analysis log triage
 ---
 
 ## The Context

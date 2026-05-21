@@ -1,6 +1,6 @@
 ---
 title: 'mcp-plesk-unified'
-description: MCP server for semantic search over the full Plesk documentation corpus. Vector embeddings, cross-encoder reranking, and RAGAS-evaluated quality gates — built to give engineers answers, not results lists.
+description: MCP server for semantic search over the full Plesk documentation corpus. Vector embeddings, cross-encoder reranking, and RAGAS-evaluated quality gates.
 publishDate: 'Nov 01 2024'
 isFeatured: true
 tags:
@@ -9,6 +9,10 @@ tags:
   - FastMCP
   - RAG
   - Vector Search
+seo:
+  image:
+    src: '../../assets/images/project-3.jpg'
+    alt: mcp-plesk-unified semantic search
 ---
 
 ## The Problem

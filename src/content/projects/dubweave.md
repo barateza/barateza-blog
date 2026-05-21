@@ -9,6 +9,10 @@ tags:
   - TTS
   - ffmpeg
   - AI
+seo:
+  image:
+    src: '../../assets/images/project-2.jpg'
+    alt: dubweave AI dubbing pipeline
 ---
 
 ## The Problem
