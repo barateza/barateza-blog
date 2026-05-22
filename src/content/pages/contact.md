@@ -2,13 +2,20 @@
 title: Get in touch
 seo:
   title: Contact
-  description: Get in touch through email or social media! Let me know how I can help.
+  description: Contact Gilson Siqueira about AI engineering, retrieval systems, or collaboration.
 ---
+If you want to discuss AI engineering, retrieval systems, or internal tooling, this is the fastest way to reach me.
 
-Thank you for reaching out! Whether you have a question, a suggestion, or just want to share your thoughts, I'm all ears. Feel free to get in touch through any of the methods below:
+Email
 
-_Email:_
-Feel free to drop me an email at [example@example.com](mailto:example@example.com), and I'll do my best to respond as soon as possible.
+- [gilson@barateza.org](mailto:gilson@barateza.org)
 
-_Social Media:_
-Connect with me on social media as well. Find me on [Twitter](https://twitter.com) or [LinkedIn](https://www.linkedin.com/).
+Social
+
+- [LinkedIn](https://www.linkedin.com/in/barateza/)
+- [GitHub](https://github.com/barateza)
+- [dev.to](https://dev.to/barateza)
+
+Availability
+
+I am open to AI Engineer roles with remote teams.

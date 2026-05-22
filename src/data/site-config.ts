@@ -8,8 +8,9 @@ const siteConfig: SiteConfig = {
         alt: 'Gilson Siqueira'
     },
     title: 'Gilson Siqueira',
-    subtitle: 'Lead Technical Support Engineer',
-    description: 'Log-first, CLI-native lead engineer. 10+ years in Linux infrastructure, technical support, and AI tooling. Based in Lins, São Paulo, Brazil.',
+    subtitle: 'AI Engineer. LLM pipelines, retrieval systems, production reliability.',
+    description:
+        'AI Engineer building RAG systems, MCP tooling, and internal AI workflows with a production support mindset. Based in São Paulo, Brazil, working remotely.',
     image: {
         src: '/og-preview.jpg',
         alt: 'Gilson Siqueira, barateza.org'
@@ -28,23 +29,39 @@ const siteConfig: SiteConfig = {
             href: '/blog'
         },
         {
-            text: 'Tags',
-            href: '/tags'
+            text: 'About',
+            href: '/about'
+        },
+        {
+            text: 'CV',
+            href: '/cv'
+        },
+        {
+            text: 'Contact',
+            href: '/contact'
         }
     ],
     footerNavLinks: [
         {
-            text: 'LinkedIn',
-            href: 'https://www.linkedin.com/in/barateza'
+            text: 'About',
+            href: '/about'
         },
         {
-            text: 'GitHub',
-            href: 'https://github.com/barateza'
+            text: 'CV',
+            href: '/cv'
         },
         {
-            text: 'Email',
-            href: 'mailto:gilson@barateza.org'
-        }
+            text: 'Projects',
+            href: '/projects'
+        },
+        {
+            text: 'Blog',
+            href: '/blog'
+        },
+        {
+            text: 'Contact',
+            href: '/contact'
+        },
     ],
     socialLinks: [
         {
@@ -56,21 +73,25 @@ const siteConfig: SiteConfig = {
             href: 'https://github.com/barateza'
         },
         {
-            text: 'Instagram',
-            href: 'https://www.instagram.com/_barateza/'
+            text: 'dev.to',
+            href: 'https://dev.to/barateza'
         }
     ],
     hero: {
         title: 'Gilson Siqueira',
-        text: "Lead Technical Support Engineer at **WebPros**, working remotely from Lins, São Paulo, Brazil.\n\n10+ years in technical support and Linux infrastructure. I pull the logs first, form an opinion second. Fix the root cause, not the symptom. I've been doing this long enough to know the difference matters.\n\n3× Top Engineer of the Quarter. Perfect 1.0 CSAT in 2026. 10% AI ticket deflection. KCS-certified knowledge publisher.\n\nFind me on [LinkedIn](https://www.linkedin.com/in/barateza), [GitHub](https://github.com/barateza), or write to [gilson@barateza.org](mailto:gilson@barateza.org).",
+        text: 'AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. I bring production support instincts to AI infrastructure. Measure first, calibrate second, ship what survives real workflows.\n\n- 10 years in Linux infrastructure and technical support.\n- 10% AI ticket deflection in production workflows.\n- 3x Top Engineer of the Quarter, 1.0 CSAT in 2026.\n\nBased in Lins, São Paulo, Brazil. Remote since 2020.',
         actions: [
             {
                 text: 'View Projects',
                 href: '/projects'
             },
             {
-                text: 'Read the Blog',
+                text: 'Read Writing',
                 href: '/blog'
+            },
+            {
+                text: 'View CV',
+                href: '/cv'
             }
         ]
     },

@@ -20,7 +20,7 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
     {
         featuredProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Projects</h2>
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Selected Work</h2>
                 {featuredProjects.map((project) => (
                     <ProjectPreview project={project} class="mb-10 sm:mb-12" headingLevel="h3" />
                 ))}
@@ -30,6 +30,15 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
             </div>
         )
     }
+    <div class="mb-16 sm:mb-24">
+        <h2 class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">What I Work On</h2>
+        <ul class="space-y-2 text-sm leading-relaxed sm:text-base">
+            <li>Retrieval systems and semantic search.</li>
+            <li>LLM pipelines with evaluation, calibration, and quality gates.</li>
+            <li>Internal AI tooling for support and operations teams.</li>
+            <li>Automation across Linux, APIs, and developer workflows.</li>
+        </ul>
+    </div>
     {
         featuredPosts?.length > 0 && (
             <div class="mb-16 sm:mb-24">
@@ -43,4 +52,15 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
             </div>
         )
     }
+    <div class="mb-16 sm:mb-24">
+        <h2 class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">Background</h2>
+        <p class="max-w-2xl text-sm leading-relaxed sm:text-base">
+            I build AI systems with a production reliability mindset shaped by 10 years of Linux infrastructure and support engineering.
+            I focus on real workflows, measurable outcomes, and tooling that reduces operational load.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+            <Button href="/about">Read About</Button>
+            <Button href="/cv">View CV</Button>
+        </div>
+    </div>
 </BaseLayout>

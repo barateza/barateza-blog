@@ -46,7 +46,7 @@ Web performance directly affects user engagement and conversion rates. Slow-load
 
 ## Web Vitals
 
-Google's Web Vitals initiative introduced three core metrics – Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS). These metrics focus on key aspects of user experience, including loading performance, interactivity, and visual stability. Aim to optimize these metrics to enhance overall user satisfaction and meet Google's performance expectations.
+Google's Web Vitals initiative introduced three core metrics: Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS). These metrics focus on key aspects of user experience, including loading performance, interactivity, and visual stability. Aim to optimize these metrics to enhance overall user satisfaction and meet Google's performance expectations.
 
 ## Conclusion
 
