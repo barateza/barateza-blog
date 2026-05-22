@@ -78,7 +78,6 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: 'Gilson Siqueira',
         text: 'AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. I bring production support instincts to AI infrastructure. Measure first, calibrate second, ship what survives real workflows.\n\n- 10 years in Linux infrastructure and technical support.\n- 10% AI ticket deflection in production workflows.\n- 3x Top Engineer of the Quarter, 1.0 CSAT in 2026.\n\nBased in Lins, São Paulo, Brazil. Remote since 2020.',
         actions: [
             {
