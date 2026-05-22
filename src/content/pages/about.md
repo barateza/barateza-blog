@@ -7,7 +7,6 @@ seo:
     src: '../../assets/images/avatar.jpg'
     alt: Gilson Siqueira
 ---
-# About
 
 I am an AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. My work is shaped by years of Linux infrastructure and support engineering, where the standard is to measure first and fix the root cause.
 

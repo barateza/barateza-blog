@@ -5,8 +5,6 @@ seo:
   description: AI Engineer with a production reliability background. Experience, projects, and technical focus.
 ---
 
-# CV
-
 ## Summary
 
 AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. I bring log first thinking, root cause focus, and quality gates from years of Linux infrastructure and support engineering.
@@ -64,27 +62,26 @@ Jul 2025 to Dec 2025 · Lins, São Paulo, Brazil · Remote
 - Returned to Lead Support by choice when the system was not ready for unsupervised expansion.
 
 **Senior Support Engineer**
-Feb 2024 to Apr 2025 · Lins, São Paulo, Brazil
+Feb 2024 to Apr 2025 · Lins, São Paulo, Brazil · Remote
 
 - Promoted Middle to Senior based on ticket quality and documentation impact.
 - Led DDoS triage, malware scoping, and SSL, TLS edge case handling.
 - First Top Engineer of the Quarter award in Q1 2024.
 
 **Middle Support Engineer**
-Nov 2022 to Feb 2024 · São José do Rio Preto, São Paulo, Brazil
+Nov 2022 to Feb 2024 · São José do Rio Preto, São Paulo, Brazil · Remote
 
 - Owned complex cases without supervisor review.
-- Led mail and DNS escalations and cloud deployments on AWS and Azure.
 
 **Support Engineer**
-Nov 2021 to Oct 2022 · Lins, São Paulo, Brazil
+Nov 2021 to Oct 2022 · Lins, São Paulo, Brazil · Remote
 
 - First role focused on Linux administration and web server troubleshooting.
 
 ### Trilogy (Crossover, XO)
 
 **L1 Customer Support Agent**
-Aug 2020 to Oct 2021 · Lins, São Paulo, Brazil
+Aug 2020 to Oct 2021 · Lins, São Paulo, Brazil · Remote
 
 - Supported Aurea Software, think3, Zephyrtel, and Avolin products.
 - Ranked 3rd in internal L1 learning cohort of 180 people. Ticket productivity above 200 percent of average.
