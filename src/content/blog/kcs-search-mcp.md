@@ -12,7 +12,12 @@ seo:
   pageType: article
   title: Building an internal AI assistant for support engineers with MCP
   description: A practical look at turning an internal Kubernetes search stack into MCP tools for knowledge base, ticket, and docs lookup.
+  image:
+    src: '../../assets/images/hero-blog-mcp-plesk.webp'
+    alt: Building an internal AI assistant for support engineers with MCP
 ---
+
+![Building an internal AI assistant for support engineers with MCP](../../assets/images/hero-blog-mcp-plesk.webp)
 
 Support engineers lose time in a very specific way. A question starts in one place, the answer lives somewhere else, and before anyone notices you’ve got six tabs open and the actual problem is still half-hidden.
 
