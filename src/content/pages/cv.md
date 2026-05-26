@@ -48,7 +48,8 @@ AI Engineer with a production reliability background. I build LLM pipelines, ret
 Apr 2025 to Present · Lins, São Paulo, Brazil · Remote
 
 - Highest complexity escalations involving Linux internals, mail stack issues, and security response.
-- Perfect 1.0 CSAT in 2026. 118 tickets closed, 19 rated interactions, top 10 percent by rated volume on a global team.
+- Perfect 100% CSAT in 2026 (YTD). 297 tickets closed, 38 rated interactions.
+- Lifetime impact: 3,360+ tickets solved with 97.7% CSAT and 97.2% QA average across 4.5 years at WebPros.
 - Stack coverage: Apache, Nginx, Postfix, Dovecot, MySQL, MariaDB, SSL, TLS, PHP. Across CentOS, Ubuntu, CloudLinux, Windows Server.
 - Security response across HTTP flood, credential stuffing, malware, webshells, SMTP compromise, SPF, DKIM, DMARC, HSTS, DANE.
 - KCS certified knowledge publisher for new incident patterns.

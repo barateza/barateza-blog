@@ -25,7 +25,8 @@ I am focused on LLM pipelines, retrieval systems, evaluation harnesses, and inte
 ## Credibility Highlights
 
 - 3x Top Engineer of the Quarter at WebPros.
-- Perfect 1.0 CSAT in 2026.
+- Perfect 100% CSAT in 2026 (YTD).
+- 3,360+ tickets solved with 97.7% lifetime CSAT.
 - 10 percent AI ticket deflection in production workflows.
 - KCS v6 Fundamentals certification.
 - Remote work since 2020.
