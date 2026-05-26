@@ -34,3 +34,7 @@ dubweave is a fully local AI dubbing pipeline: download → transcribe → trans
 - Pipeline resumability: interrupted runs continue from last checkpoint
 
 [View on GitHub](https://github.com/barateza/dubweave)
+
+## Related Reading
+
+[Building an internal AI assistant for support engineers with MCP](../blog/kcs-search-mcp.md) — Another MCP-based internal tool project that shares a similar philosophy of keeping data local and giving engineers direct access to the systems they trust.
