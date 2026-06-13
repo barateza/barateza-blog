@@ -13,11 +13,11 @@ seo:
   title: Dubweave, for Aline
   description: A warm, simple technical deep dive into dubweave, the fully local dubbing pipeline I built for my wife.
 ---
-I built dubweave for my wife, Aline. She speaks Portuguese, and I kept finding these videos (essays, documentaries, interviews) that I wanted to show her. Subtitles help, yeah, but it is not the same. When you dub something, you can both just... listen. You sit together and watch without the reading part happening in your head.
+I built dubweave for my wife, Aline. She speaks Portuguese, and I kept finding these videos (essays, documentaries, interviews) that I wanted to show her. Subtitles help, yeah, but it's not the same. When you dub something, you can both just... listen. You sit together and watch without the reading part happening in your head.
 
 So I built this for that. To not send our videos to some company's server. To keep it mine. And as I built it, it got complicated in the ways that feel honest to me, because I like (and obviously prefer) systems I can understand and trust.
 
-If I had to explain what dubweave actually does, I would say it is like a workshop. Not a fancy one. Just a series of stations where each person passes the work to the next person: just clear handoffs.
+If I had to explain what dubweave actually does, I'd say it's like a workshop. Not a fancy one. Just a series of stations where each person passes the work to the next person: just clear handoffs.
 
 ## The workshop tour, step by step
 
@@ -27,7 +27,7 @@ If you give it a local file, it converts to mp4 and pulls out the audio. If you 
 
 ### Station 2: Listen and mark the time
 
-Whisper does two things: First it listens and figures out what language the audio is. Then it transcribes what it hears and marks down the exact time each word starts and stops. That timing is everything; it is like the skeleton. If I do not respect it, the dubbed voice will start moving around and the speaker's mouth will not match. Thus I keep that timing sacred.
+Whisper does two things: First it listens and figures out what language the audio is. Then it transcribes what it hears and marks down the exact time each word starts and stops. That timing is everything — it's the skeleton. If I don't respect it, the dubbed voice will start moving around and the speaker's mouth won't match. So I keep that timing sacred.
 
 ### Station 3: Glue the pieces together
 
@@ -37,7 +37,7 @@ But translation works better on whole thoughts, not fragments. So I have a few s
 
 ### Station 4: Translate, then fix it
 
-If you have an API key, translation goes through Gemini. I break it into chunks, number them, and give it a bit of context from previous translations so pronouns and tone stay consistent. If the API fails or you do not have a key, it falls back to a local model instead. Either way, the translation then gets run through a PT-BR fixer.
+If you have an API key, translation goes through Gemini. I break it into chunks, number them, and give it a bit of context from previous translations so pronouns and tone stay consistent. If the API fails or you don't have a key, it falls back to a local model instead. Either way, the translation runs through a PT-BR fixer afterward.
 
 Most systems either guess at these rules or bury them. I keep 36 explicit regex rules in code and in a JSON file so I can edit them without redeploying:
 
@@ -52,7 +52,7 @@ _PTPT_TO_PTBR = [
 ]
 ```
 
-The rules get loaded from a JSON file first. You can edit them. You can test them. You can see what is actually happening.
+The rules load from a JSON file first. You can edit them, test them, see what's actually happening.
 
 ### Station 5: Does it fit?
 
@@ -77,7 +77,7 @@ Then if something is too long, I try an LLM rephrase. If that fails, I trim to t
 
 ### Station 6: Speak
 
-I support a bunch of different text-to-speech engines — Kokoro, XTTS v2, Edge, Google, Gemini, ElevenLabs, Supertonic. They all work differently but I make them all follow the same rules: generate audio, measure how long it is, then speed it up or slow it down to fit the time slot. If one breaks, it becomes a short silence instead of killing the whole run. That is not fancy. That is just reliability.
+I support a bunch of different text-to-speech engines — Kokoro, XTTS v2, Edge, Google, Gemini, ElevenLabs, Supertonic. They all work differently but I make them all follow the same rules: generate audio, measure how long it is, then speed it up or slow it down to fit the time slot. If one breaks, it becomes a short silence instead of killing the whole run. That's not fancy. That's just reliability.
 
 ### Station 7: Mix it all together
 
@@ -113,7 +113,7 @@ Every stage is a file. Pause. Come back. Tweak manually if needed.
 
 **Normalization is explicit and editable**: 36 regex rules for PT-PT → PT-BR. Not buried in code. In a JSON file. You can edit pronouns, verb forms, gerunds, vocabulary. Change them and run again.
 
-**Translation has a safety net**: Gemini with context windows for consistency. If the API fails or you do not have a key, it falls back to a local NLLB model. Normalization runs either way.
+**Translation has a safety net**: Gemini with context windows for consistency. If the API fails or you don't have a key, it falls back to a local NLLB model. Normalization runs either way.
 
 **Seven TTS engines, one contract**: Kokoro, XTTS v2, Edge, Google, Gemini, ElevenLabs, Supertonic. All generate audio, get time-stretched to fit, fail silently. Same code path.
 
@@ -121,8 +121,8 @@ Every stage is a file. Pause. Come back. Tweak manually if needed.
 
 ## How I work
 
-I am autistic. I do not build by guessing. I measure, I calibrate, I make small changes and then check if they actually worked. I keep logs. I write rules down in JSON. I tune things like speech rate over and over until the numbers match what I hear, because my ears alone are not reliable enough. Ambiguity exhausts me, so I build systems with explicit rules instead. This is not a personality thing. This is how I keep systems honest, and this is how I keep myself functional.
+I am autistic. I don't build by guessing. I measure, I calibrate, I make small changes and then check if they actually worked. I keep logs. I write rules down in JSON. I tune things like speech rate over and over until the numbers match what I hear, because my ears alone aren't reliable enough. Ambiguity exhausts me, so I build systems with explicit rules instead. This is not a personality thing. This is how I keep systems honest, and this is how I keep myself functional.
 
 ## That is it
 
-dubweave is a technical system but also a personal one. It was built for my wife. It was built the way I know how to build. If you are thinking about hiring me, this is what you are hiring: someone who builds things by measuring them, not guessing. Someone who keeps explicit rules and keeps them in files. Someone who cares about timing and context windows and graceful failure. Someone who would rather spend an hour understanding a thing than thirty minutes assuming it works.
+dubweave is a technical system, but it's also a personal one. It was built for my wife. It was built the way I know how to build. If you are thinking about hiring me, this is what you are hiring: someone who builds things by measuring them, not guessing. Someone who keeps explicit rules and keeps them in files. Who cares about timing and context windows and graceful failure. Someone who would rather spend an hour understanding a thing than thirty minutes assuming it works.

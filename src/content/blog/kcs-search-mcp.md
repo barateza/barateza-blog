@@ -78,13 +78,13 @@ The architecture splits cleanly into three layers:
 - **Service layer**: The remote search infrastructure that actually runs the queries and answer generation. The server calls it over standard HTTPS but shields the client from network details.
 
 That separation meant I could evolve the server independently from the services. If an upstream API changed, only the server needed updating. If we wanted to swap one service for another, the client didn't care.
-I also liked how MCP pushed me to think in capabilities instead of prompts. A support engineer doesn’t need a giant blob of instructions that tries to anticipate every branch. They need reliable tools for lookup, comparison, and follow-up, and they need those tools to behave predictably when things are already tense. That kind of steadiness matters more than cleverness.
+I also liked how MCP pushed me to think in capabilities instead of prompts. A support engineer doesn’t need a giant blob of instructions that tries to anticipate every branch. They need reliable tools for lookup, comparison, and follow-up — tools that behave predictably when things are already tense. That kind of steadiness matters more than cleverness.
 
 ## Tool design
 
 I split the server into separate tools instead of one generic search endpoint.
 
-That sounds like a minor detail; but i assure you it isn’t, at least not when you’re trying to keep the experience understandable for the person using it. Small boundaries can make a tool feel much kinder:
+That sounds like a minor detail; but I assure you it isn’t, at least not when you’re trying to keep the experience understandable for the person using it. Small boundaries can make a tool feel much kinder:
 
 1. Keyword search and semantic search solve different problems.
 2. Knowledge base lookup is not the same as ticket history lookup.
@@ -187,7 +187,7 @@ It also reinforced something I’ve seen over and over in support and infrastruc
 
 I like building AI systems that make expert work feel lighter instead of replacing the expert. This project did that in a very concrete way. It turned scattered knowledge into something engineers could query directly, right in the flow of work, which is exactly the kind of thing I want to keep building. That kind of work feels good to me.
 
-That’s the kind of AI product I want to keep building.
+That’s the kind of work I want to keep doing.
 
 ---
 
