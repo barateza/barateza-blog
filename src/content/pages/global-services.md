@@ -1,0 +1,14 @@
+---
+title: Barateza Global Services
+seo:
+  title: Barateza Global Services
+  description: Short-term and long-term bespoke technical support services by Barateza Global Services.
+---
+
+Barateza Global Services provides short-term and long-term bespoke technical support services.
+
+**Legal entity:** GILSON LEITE SIQUEIRA JUNIOR SERVICOS DE TI LTDA  
+**CNPJ:** 68.374.772/0001-27  
+**DBA:** Barateza Global Services
+
+Contact: <a href="mailto:global.services&#64;barateza&#46;org">global.services&#64;barateza&#46;org</a>
