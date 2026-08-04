@@ -37,6 +37,10 @@ const siteConfig: SiteConfig = {
             href: '/cv'
         },
         {
+            text: 'Global Services',
+            href: '/global-services'
+        },
+        {
             text: 'Contact',
             href: '/contact'
         }
