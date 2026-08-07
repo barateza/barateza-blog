@@ -5,6 +5,10 @@ seo:
   description: Short-term and long-term bespoke technical support services by Barateza Global Services.
 ---
 
+<div class="mb-6 flex justify-center">
+    <img src="/global-services-logo.webp" alt="Barateza Global Services logo" width="256" height="256" />
+</div>
+
 Barateza Global Services provides short-term and long-term bespoke technical support services.
 
 **Legal entity:** GILSON LEITE SIQUEIRA JUNIOR SERVICOS DE TI LTDA  
