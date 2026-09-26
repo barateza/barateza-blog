@@ -2,7 +2,12 @@ import { type CollectionEntry } from 'astro:content';
 import { slugify } from './common-utils';
 
 export function sortItemsByDateDesc(itemA: CollectionEntry<'blog' | 'projects'>, itemB: CollectionEntry<'blog' | 'projects'>) {
-    return new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
+    const byDate = new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
+    // Entries sharing a publishDate would otherwise fall back to whatever order the
+    // content collection happens to iterate in, which changed between Astro majors
+    // and silently reshuffled the archive, tags index and RSS feed. Break the tie on
+    // id so the result is a stable total order: date descending, then id descending.
+    return byDate !== 0 ? byDate : itemB.id.localeCompare(itemA.id);
 }
 
 export function getAllTags(posts: CollectionEntry<'blog'>[]) {
