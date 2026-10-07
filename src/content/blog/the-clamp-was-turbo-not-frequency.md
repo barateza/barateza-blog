@@ -20,19 +20,19 @@ The first said 2.4 GHz with turbo off, 45 seconds of load: 95 °C, then it clamp
 
 But a core held at 1.4 GHz cannot settle _hotter_ than the same core held at 2.4 GHz under the same load. Less clock means less power means less heat. The rows were sorted hottest-last because every run started on a heatsink still soaked by the one before it — the table was measuring my run order, and the last row inherited the worst of it. So the cap was fitted to a property of the measurement, not of the CPU.
 
-What the machine is: a Lenovo Y50-70 from 2013, i7-4700HQ, four cores and eight threads, 2.4 GHz base and 3.4 GHz turbo. It runs Debian, two self-hosted GitHub Actions runners for [neemias](https://github.com/barateza/neemias), and my CI — lint, unit tiers, integration, docs, deploys. Its thermal limits are not a hobby. When the CPU drops to 800 MHz mid-job, the job gets slow, and when the chassis sits at 100 °C I get to wonder how long the thing lasts.
+What the machine is: a Lenovo Y50-70 from 2013, i7-4700HQ, four cores and eight threads, 2.4 GHz base and 3.4 GHz turbo. It runs Debian, two self-hosted GitHub Actions runners for [neemias](https://github.com/barateza/neemias), and my CI — lint, unit tiers, integration, docs, deploys, all of it under one CPU cap.
 
 ## The gate that was missing
 
 The old table had two defects, and only one of them was about temperature.
 
-**Every run now waits for the package to fall to 56 °C or lower before it starts.** That single line is the difference between measuring caps and measuring history. `COOL_TO=56`, a 300-second timeout, and if the timeout fires the run says so instead of quietly starting warm.
+**Every run now waits for the package to fall to 56 °C before it starts** (`COOL_TO=56`, 300-second timeout, and a run that times out says so instead of quietly starting warm). That one line is the difference between measuring caps and measuring history.
 
-**Frequency comes from `turbostat`'s `Bzy_MHz`, not from `scaling_cur_freq`.** Under `intel_pstate` in passive mode, `scaling_cur_freq` reports a _target_. Mine sits near 1297 MHz whether the cores are idle or pinned to the floor, which means the old table's instrument was structurally incapable of seeing the thing it was investigating.
+**Frequency comes from `turbostat`'s `Bzy_MHz`, not `scaling_cur_freq`.** Under `intel_pstate` in passive mode the latter reports a _target_: mine sits near 1297 MHz whether the cores are idle or pinned to the floor, so the old table's instrument could not see the thing it was investigating.
 
-**Throttling is read from the MSR-backed counters**, summed across all eight CPUs before and after the load, and the delta is written into the row. A run cannot inherit another run's events, because the events it reports are the ones that happened while it was running.
+**Throttling comes from the MSR-backed counters**, summed across all eight CPUs before and after the load as a per-run delta. A run cannot inherit another run's events.
 
-The heavy load is `stress-ng --cpu 8 --cpu-method fft`. Sysbench's default workload peaks around 22 W on this chip and never gets near the wall, which is how a 1.4 GHz cap can look adequate.
+The heavy load is `stress-ng --cpu 8 --cpu-method fft`. Sysbench's default peaks around 22 W on this chip and never reaches the wall, which is how a 1.4 GHz cap can look adequate.
 
 ## Turbo reaches the wall in about a second
 
@@ -48,8 +48,6 @@ That is what the 800 MHz clamp is: turbo's excursion hitting the junction limit,
 
 ## 2.72 GHz holds, which is not the same as fitting
 
-Partial turbo is the interesting case, and it is the one that taught me what I was actually buying.
-
 At 2.72 GHz the package holds 2700 MHz _flat_ for 420 seconds: zero intervals at the floor, zero throttle events. It does not clamp. It draws 41.29 W and sits at **98 °C**, with 206 samples at or above 95 °C.
 
 So it survives my worst case. It also leaves two degrees of margin on a laptop whose fan is behind a dusty 2013 intake, with a second runner able to start a job at any moment. A cap is not a measurement of what one job can survive; it is the ceiling every job has to live under. I took the 2.4 GHz number, which leaves 18 degrees below the limit, and left 2.72 GHz as a documented "holds, but no".
@@ -62,9 +60,9 @@ The synthetic worst case is not the argument. The real unit tier is — `pnpm te
 
 At the 41% cap the unit tier ran 95 seconds at a measured 1300 MHz, drawing 15.66 W and peaking at 57 °C. At the 71% cap it ran **54 seconds** at 2399 MHz, drawing 23.99 W and peaking at 67 °C. Both runs: zero throttle events, zero intervals at the floor.
 
-95 seconds to 54 is **1.76×**, and it costs 10 degrees on a workload that is nowhere near the limit — 24 W of a 32 W worst case. The honest reading is not that raising the cap bought headroom. It is that 33 degrees of it were already sitting there unused while a 1.4 GHz cap slowed every job down.
+95 seconds to 54 is **1.76×**, and it costs 10 degrees on a workload nowhere near the limit — 24 W of a 32 W worst case. The honest reading is not that raising the cap bought headroom: 33 degrees of it were already sitting there unused while a 1.4 GHz cap slowed every job down.
 
-One thing that did _not_ buy speed, though I initially thought it had: a commit that cut 268 seconds out of a 468-second `e2e` job. That step was restoring a 984 MiB Playwright browser cache over the network at 3.9 MiB/s. The job got shorter; the CPU-bound phases and the thermal wall did not move at all.
+One thing that did _not_ buy speed, though I thought it had: a commit that cut 268 seconds from a 468-second `e2e` job by restoring a 984 MiB Playwright browser cache over the network at 3.9 MiB/s. The job got shorter; the CPU-bound phases and the thermal wall did not move.
 
 And when a real CI job later ran through the runner at the 2.4 GHz cap, the sampler caught it at 119 seconds, peak **69 °C**, mean 20.4 W, zero intervals at the floor, zero throttle events.
 
@@ -72,9 +70,9 @@ And when a real CI job later ran through the runner at the 2.4 GHz cap, the samp
 
 I would rather document the failures than leave them implied, because both look reasonable from the outside.
 
-**A kernel passive thermal trip** is the textbook answer: let the kernel throttle before the hardware does. On this box, `thermal_zone1` has no cooling devices bound to it, `trip_point_*_type` is read-only, and the registered passive trip is disabled at −274000. I set one at 60 °C anyway and watched the package run straight through it: a flat 2400 MHz to 80 °C, not one cooling device ever leaving state 0. The interface exists. It does nothing here.
+**A kernel passive thermal trip** is the textbook answer: let the kernel throttle before the hardware does. On this box, `thermal_zone1` has no cooling devices bound to it, `trip_point_*_type` is read-only, and the registered passive trip is disabled at −274000. I set one at 60 °C anyway and watched the package run flat at 2400 MHz through it to 80 °C, without a single cooling device leaving state 0. The interface exists; it does nothing here.
 
-**A userspace guard** that lowers the cap when temperature rises is the other obvious answer, and I built one. It polls at 1 Hz and reacts through an exponential moving average. Turbo reaches the junction limit in about a second. In the test it logged eleven samples at or above 95 °C, hit the floor six times, kept 7,570 throttle events, and then settled at 88–90 °C and 2477 MHz — hotter _and_ slower than leaving the cap alone at 2.4 GHz. It needed about thirty seconds to converge on a problem that resolves in one. I kept it, because a negative result you can point at is worth more than a deleted file.
+**A userspace guard** that lowers the cap as temperature rises is the other obvious answer, and I built one: a 1 Hz poll through an exponential moving average. Turbo reaches the junction limit in about a second. In the test it logged eleven samples at or above 95 °C, hit the floor six times, kept 7,570 throttle events, and settled at 88–90 °C and 2477 MHz — hotter _and_ slower than leaving the cap alone. It wants about thirty seconds to converge on a problem that resolves in one. I kept it, because a negative result you can point at beats a deleted file.
 
 ## What actually changed
 
@@ -85,18 +83,16 @@ sudo tlp start
 
 41% to 71%, turbo still off, and the rollback is the same command with `41` in it. Identity-wise nothing else moved: the governor is still `schedutil`, the driver still `intel_cpufreq` in passive mode, and the runner's CPU quota is untouched.
 
-If you want to check any of it, everything is published rather than described. The raw rows are in [results.csv](/thermal/results.csv), including one aborted attempt that produced no turbostat intervals and survives in the file as a row of zeros — a table that keeps only the runs that worked is how the previous one ended up misleading me. The host state is in [environment.txt](/thermal/environment.txt) with a `config-hash` over the parts that must not drift and a separate, unhashed section for the things that move while the machine is up. The two 420-second runs are there in full, still gzipped, under `raw/`, plus [timeseries.csv](/thermal/timeseries.csv) and the script that turns them into the charts above. Every number above is in one of those files.
+The rows are in [results.csv](/thermal/results.csv), including one aborted attempt that produced no turbostat intervals and survives as a row of zeros — a table that keeps only the runs that worked is how the previous one ended up misleading me.
 
-If you run CI on hardware old enough to have opinions, I would like the comparison more than the agreement: where does _your_ power curve knee sit, and does it sit there with a second job running? That is the measurement I still cannot make here.
+The temptation with a speedup number is to assert it. I would rather it be checkable, so here is the way in. [public/thermal](https://github.com/barateza/barateza-blog/tree/main/public/thermal) holds the rows, the fingerprint with its `config-hash`, and both 420-second turbostat logs, still gzipped. [thermal-charts.mjs](https://github.com/barateza/barateza-blog/blob/main/scripts/thermal-charts.mjs) is the script that draws the two charts above from those files, and [thermal-fingerprint.sh](https://github.com/barateza/barateza-blog/blob/main/scripts/thermal-fingerprint.sh) prints your own machine's state and hash, so two runs can be compared honestly.
+
+Point the script at your logs and you have your own version of the chart. The number I want is where your power curve knee sits, and whether it holds with a second job running. [Open an issue](https://github.com/barateza/barateza-blog/issues) with your `Bzy_MHz` series and your config-hash, or mail it to me. That is the measurement I still cannot make here.
 
 ## What I don't know
 
 The runner quota moved from 600% to 800% on the 1st of October, after these runs. That number does not enter any of the results above, because I measured the unit tier directly as my own user rather than through the runner service. The re-validation that matters — a real job under the 800% quota — is still pending, and it starts from a zero baseline because the throttle counters reset at boot.
 
-The kernel moved too: these runs are 6.12.107, and the host now runs 6.12.111. The policy knobs are byte-identical across that boundary, so I am comfortable comparing them, but the numbers belong to the older kernel and I would rather say so than round it away.
+The kernel moved too: these runs are 6.12.107, the host now runs 6.12.111. The policy knobs are byte-identical across that boundary, but the numbers belong to the older kernel and I would rather say so than round it away.
 
 And 2.72 GHz is unresolved in the only way that matters. It held for 420 seconds with zero throttle events and 2 degrees of headroom. I do not know what it does with a second CI job starting at second 300, and I do not have a way to schedule that on purpose. It stays at "no" until I can measure it, which is a slightly unsatisfying place to stop — and the one the data supports.
-
----
-
-_One note on the shape of this post._ There is a study — [SlopShape](https://arxiv.org/abs/2609.15369), over 11,250 AI-written commercial blog posts — that finds AI-generated web content is detectable from structure alone, independent of wording: the payoff promised in the title, the thesis and roadmap announced before the first section, the editorial-explainer voice, the closing section that restates what you just read. I wrote this against that list, which is why it opens on a contradiction instead of a summary, why the failed approaches are in the middle, and why there is no conclusion restating the finding. That is a writing constraint, not evidence: avoiding a detector's signature does not make a claim true, and I did not run one. The measurements are the only reason to believe any of this.
