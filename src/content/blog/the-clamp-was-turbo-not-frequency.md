@@ -50,7 +50,7 @@ That is what the 800 MHz clamp is: turbo's excursion hitting the junction limit,
 
 At 2.72 GHz the package holds 2700 MHz _flat_ for 420 seconds: zero intervals at the floor, zero throttle events. It does not clamp. It draws 41.29 W and sits at **98 °C**, with 206 samples at or above 95 °C.
 
-So it survives my worst case. It also leaves two degrees of margin on a laptop whose fan is behind a dusty 2013 intake, with a second runner able to start a job at any moment. A cap is not a measurement of what one job can survive; it is the ceiling every job has to live under. I took the 2.4 GHz number, which leaves 18 degrees below the limit, and left 2.72 GHz as a documented "holds, but no".
+So it survives my worst case. It also leaves two degrees of margin on a laptop whose fan is behind a dusty 2013 intake, with a second runner able to start a job at any moment. A cap is not a measurement of what one job can survive; it is the ceiling every job has to live under. I took the 2.4 GHz number, which leaves 18 degrees below the limit, and left 2.72 GHz as a documented "holds, but no". What it would do with a second job starting at second 300 is the part I cannot schedule on purpose.
 
 ## What the real workload does
 
@@ -65,6 +65,8 @@ At the 41% cap the unit tier ran 95 seconds at a measured 1300 MHz, drawing 15.6
 One thing that did _not_ buy speed, though I thought it had: a commit that cut 268 seconds from a 468-second `e2e` job by restoring a 984 MiB Playwright browser cache over the network at 3.9 MiB/s. The job got shorter; the CPU-bound phases and the thermal wall did not move.
 
 And when a real CI job later ran through the runner at the 2.4 GHz cap, the sampler caught it at 119 seconds, peak **69 °C**, mean 20.4 W, zero intervals at the floor, zero throttle events.
+
+One caveat on all of those numbers: I ran the unit tier directly as my own user, not through the runner service, so the runner's `CPUQuota` is not in them. It moved from 600% to 800% on the 1st of October, after these runs, and a real job under the new quota has not been sampled yet.
 
 ## Two fixes that don't work on this machine
 
@@ -81,18 +83,10 @@ sudo sed -i 's/^CPU_MAX_PERF_ON_AC=.*/CPU_MAX_PERF_ON_AC=71/' /etc/tlp.conf
 sudo tlp start
 ```
 
-41% to 71%, turbo still off, and the rollback is the same command with `41` in it. Identity-wise nothing else moved: the governor is still `schedutil`, the driver still `intel_cpufreq` in passive mode, and the runner's CPU quota is untouched.
+41% to 71%, turbo still off, and the rollback is the same command with `41` in it. Identity-wise nothing else moved: the governor is still `schedutil`, and the driver still `intel_cpufreq` in passive mode.
 
-The rows are in [results.csv](/thermal/results.csv), including one aborted attempt that produced no turbostat intervals and survives as a row of zeros — a table that keeps only the runs that worked is how the previous one ended up misleading me.
+The rows are in [results.csv](/thermal/results.csv), including one aborted attempt that produced no turbostat intervals and survives as a row of zeros — a table that keeps only the runs that worked is how the previous one ended up misleading me. The runs are kernel 6.12.107 and the host now runs 6.12.111; the policy knobs are byte-identical across that boundary, so the comparison holds, but the numbers belong to the older kernel.
 
 The temptation with a speedup number is to assert it. I would rather it be checkable, so here is the way in. [public/thermal](https://github.com/barateza/barateza-blog/tree/main/public/thermal) holds the rows, the fingerprint with its `config-hash`, and both 420-second turbostat logs, still gzipped. [thermal-charts.mjs](https://github.com/barateza/barateza-blog/blob/main/scripts/thermal-charts.mjs) is the script that draws the two charts above from those files, and [thermal-fingerprint.sh](https://github.com/barateza/barateza-blog/blob/main/scripts/thermal-fingerprint.sh) prints your own machine's state and hash, so two runs can be compared honestly.
 
 Point the script at your logs and you have your own version of the chart. The number I want is where your power curve knee sits, and whether it holds with a second job running. [Open an issue](https://github.com/barateza/barateza-blog/issues) with your `Bzy_MHz` series and your config-hash, or mail it to me. That is the measurement I still cannot make here.
-
-## What I don't know
-
-The runner quota moved from 600% to 800% on the 1st of October, after these runs. That number does not enter any of the results above, because I measured the unit tier directly as my own user rather than through the runner service. The re-validation that matters — a real job under the 800% quota — is still pending, and it starts from a zero baseline because the throttle counters reset at boot.
-
-The kernel moved too: these runs are 6.12.107, the host now runs 6.12.111. The policy knobs are byte-identical across that boundary, but the numbers belong to the older kernel and I would rather say so than round it away.
-
-And 2.72 GHz is unresolved in the only way that matters. It held for 420 seconds with zero throttle events and 2 degrees of headroom. I do not know what it does with a second CI job starting at second 300, and I do not have a way to schedule that on purpose. It stays at "no" until I can measure it, which is a slightly unsatisfying place to stop — and the one the data supports.
