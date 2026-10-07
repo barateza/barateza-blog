@@ -20,7 +20,7 @@ The first said 2.4 GHz with turbo off, 45 seconds of load: 95 °C, then it clamp
 
 But a core held at 1.4 GHz cannot settle _hotter_ than the same core held at 2.4 GHz under the same load. Less clock means less power means less heat. The rows were sorted hottest-last because every run started on a heatsink still soaked by the one before it. The table was measuring my run order, and the last row inherited the worst of it. So the cap was fitted to a property of the measurement, not of the CPU.
 
-What the machine is: a Lenovo Y50-70 from 2013, i7-4700HQ, four cores and eight threads, 2.4 GHz base and 3.4 GHz turbo. It runs Debian, two self-hosted GitHub Actions runners for [neemias](https://github.com/barateza/neemias), and my CI (lint, unit tiers, integration, docs, deploys), all of it under one CPU cap.
+What the machine is: a Lenovo Y50-70 from 2013, i7-4700HQ, four cores and eight threads, 2.4 GHz base and 3.4 GHz turbo. It runs Debian and two self-hosted GitHub Actions runners that execute my CI (lint, unit tiers, integration, docs, deploys), all of it under one CPU cap.
 
 ## The gate that was missing
 

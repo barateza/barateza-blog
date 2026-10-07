@@ -78,7 +78,7 @@ The architecture splits cleanly into three layers:
 - **Service layer**: The remote search infrastructure that actually runs the queries and answer generation. The server calls it over standard HTTPS but shields the client from network details.
 
 That separation meant I could evolve the server independently from the services. If an upstream API changed, only the server needed updating. If we wanted to swap one service for another, the client didn't care.
-I also liked how MCP pushed me to think in capabilities instead of prompts. A support engineer doesn’t need a giant blob of instructions that tries to anticipate every branch. They need reliable tools for lookup, comparison, and follow-up — tools that behave predictably when things are already tense. That kind of steadiness matters more than cleverness.
+I also liked how MCP pushed me to think in capabilities instead of prompts. A support engineer doesn’t need a giant blob of instructions that tries to anticipate every branch. They need reliable tools for lookup, comparison, and follow-up: tools that behave predictably when things are already tense. That kind of steadiness matters more than cleverness.
 
 ## Tool design
 
@@ -103,7 +103,7 @@ For answers, I built two tools: one to generate grounded LLM responses, another 
 
 Discovery tools let the model list available sources, tags, and sections without guessing. A fourth class handles structured metadata lookups to build more informed queries.
 
-Each tool is stateless except for answer generation, which stores a `chat_id` so you can regenerate without re-searching. That minimal state felt right — the model can use these tools in any order, and results are cacheable.
+Each tool is stateless except for answer generation, which stores a `chat_id` so you can regenerate without re-searching. That minimal state felt right. The model can use these tools in any order, and results are cacheable.
 
 ## What the backend looked like
 
@@ -136,7 +136,7 @@ The server is a Python FastMCP application that communicates with the AI client 
 
 The `HTTP_TIMEOUT_SECONDS` parameter is the only tuning knob most people need to touch.
 
-Response times vary by operation. Semantic search usually completes in 2–5 seconds. Keyword search is faster. Answer generation is slower (10–30 seconds) because it involves model inference on top of retrieval.
+Response times vary by operation. Semantic search usually completes in 2 to 5 seconds. Keyword search is faster. Answer generation is slower (10 to 30 seconds) because it involves model inference on top of retrieval.
 I also had to respect something obvious but easy to ignore: internal systems are not built for free-form AI access. Some endpoints only work in specific contexts. Some assumptions that hold locally fall apart the moment you hit the real network. You learn that quickly, usually after a few false starts. That part can be humbling.
 
 ## Security and guardrails
@@ -161,7 +161,7 @@ A few hard constraints shaped this tool:
 - **Environment scope**: Both services run on staging infrastructure. There is no production endpoint at this point.
 - **Streaming**: The underlying answer generation API supports streaming, but v1 of this server does not. Answer generation returns the full response when complete instead of streaming tokens as they arrive. This adds latency but simplifies the client implementation.
 
-These constraints shaped the tool's scope on purpose. It works well for solo developers on internal networks with staging data. I didn't try to make it something it isn't — that simplicity is the whole point. There's less to go wrong when a tool admits what it can't do.
+These constraints shaped the tool's scope on purpose. It works well for solo developers on internal networks with staging data. I didn't try to make it something it isn't. That simplicity is the whole point. There's less to go wrong when a tool admits what it can't do.
 
 ## Adoption
 
@@ -193,4 +193,4 @@ That’s the kind of work I want to keep doing.
 
 ## Related Project
 
-[**dubweave** — Fully local AI dubbing pipeline](../projects/dubweave.md). Like this KCS Search MCP project, dubweave is built on the principle of keeping everything local, measurable, and under your control. Both are systems that respect the data they handle and the people who use them.
+[**dubweave**: Fully local AI dubbing pipeline](../projects/dubweave.md). Like this KCS Search MCP project, dubweave is built on the principle of keeping everything local, measurable, and under your control. Both are systems that respect the data they handle and the people who use them.
