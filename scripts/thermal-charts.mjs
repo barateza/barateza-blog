@@ -113,14 +113,11 @@ function yAxis({ x, x1, y0, y1, min, max, ticks, unit }) {
             `<line x1="${x}" y1="${fmt(y(t), 1)}" x2="${x1}" y2="${fmt(y(t), 1)}" stroke="${C.grid}" stroke-opacity="0.28" stroke-width="1"/>
     <text x="${x - 8}" y="${fmt(y(t) + 4, 1)}" text-anchor="end" font-family="${FONT}" font-size="11" fill="${C.label}">${t}</text>`
     );
-    parts.push(
-        `<text x="${x - 8}" y="${y0 - 10}" text-anchor="end" font-family="${FONT}" font-size="11" fill="${C.strong}">${esc(unit)}</text>`
-    );
+    parts.push(`<text x="${x - 8}" y="${y0 - 10}" text-anchor="end" font-family="${FONT}" font-size="11" fill="${C.strong}">${esc(unit)}</text>`);
     return parts.join('\n    ');
 }
 
-const panel = (W, H) =>
-    `<rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="10" fill="${C.panel}" stroke="${C.panelEdge}" stroke-width="1"/>`;
+const panel = (W, H) => `<rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="10" fill="${C.panel}" stroke="${C.panelEdge}" stroke-width="1"/>`;
 
 const legend = (x, y, items) =>
     `<g font-family="${FONT}" font-size="11.5" fill="${C.strong}">` +
@@ -256,9 +253,7 @@ function main() {
     const floor = (rows) => rows.filter((r) => r.bzy_mhz <= 860).length;
     const nan = (rows, key) => rows.filter((r) => !Number.isFinite(r[key])).length;
     console.log('thermal-charts: wrote timeseries.csv, clamp.svg, ci.svg');
-    console.log(
-        `  intervals: C2 ${slowRows.length}, T3 ${fastRows.length} | at floor (<=860 MHz): C2 ${floor(slowRows)}, T3 ${floor(fastRows)}`
-    );
+    console.log(`  intervals: C2 ${slowRows.length}, T3 ${fastRows.length} | at floor (<=860 MHz): C2 ${floor(slowRows)}, T3 ${floor(fastRows)}`);
     console.log(
         `  missing values: PkgTmp C2 ${nan(slowRows, 'pkg_tmp_c')}/T3 ${nan(fastRows, 'pkg_tmp_c')}, PkgWatt C2 ${nan(slowRows, 'pkg_watt')}/T3 ${nan(fastRows, 'pkg_watt')}`
     );
