@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * thermal-charts.mjs — turn the published measurement files into SVG charts.
+ * thermal-charts.mjs: turn the published measurement files into SVG charts.
  *
  * Inputs (both committed, both downloadable from the post):
  *   public/thermal/results.csv                        one row per experiment
@@ -224,7 +224,7 @@ function ciChart(rows) {
     ${bar(slow, 150, C.slow)}
     ${bar(fast, 430, C.fast)}
     <line x1="70" y1="${baseY}" x2="${W - 40}" y2="${baseY}" stroke="${C.grid}" stroke-opacity="0.6" stroke-width="1"/>
-    <text x="${W / 2}" y="${H - 22}" text-anchor="middle" font-family="${FONT}" font-size="11" fill="${C.label}">1 Hz turbostat intervals covering the CPU-bound work · measured 2026-09-25 on barasrv1</text>
+    <text x="${W / 2}" y="${H - 22}" text-anchor="middle" font-family="${FONT}" font-size="11" fill="${C.label}">1 Hz turbostat intervals covering the CPU-bound work · measured 2026-09-25 on the CI host</text>
 </svg>
 `;
 }

@@ -1,6 +1,6 @@
 # barateza.org
 
-Personal site and blog of [Gilson Siqueira](https://barateza.org) — Lead Technical Support Engineer at WebPros.
+Personal site and blog of [Gilson Siqueira](https://barateza.org), Lead Technical Support Engineer at WebPros.
 
 Built with [Astro](https://astro.build) + [Dante theme](https://github.com/JustGoodUI/dante-astro-theme), deployed on Vercel.
 
@@ -32,8 +32,8 @@ rendered text of every page.
 
 Pass a baseline build to diff against it (content changes fail; whitespace-only
 changes are reported for review, because Astro 7's `compressHTML: 'jsx'` drops
-whitespace between inline elements — invisible inside `flex`/`grid` containers,
-visible in normal flow):
+whitespace between inline elements, which is invisible inside `flex`/`grid`
+containers and visible in normal flow):
 
 ```bash
 npm run build && cp -r dist /tmp/baseline
@@ -52,8 +52,8 @@ What is left in the REVIEW tier is whitespace only, and it was checked by
 measuring rather than by eye. The footer nav, the footer social links and the post
 tag list are all `flex` containers with `gap`, so the dropped spaces between items
 are not rendered. Serving the old and new builds side by side and reading
-`getBoundingClientRect()` for those elements gives identical geometry on both —
-same `x`, same widths, same document height — for `/about/` and
+`getBoundingClientRect()` for those elements gives identical geometry on both,
+with the same `x`, widths and document height, for `/about/` and
 `/blog/kcs-search-mcp/`.
 
 ## Structure
