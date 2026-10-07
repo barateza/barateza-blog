@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# thermal-fingerprint.sh — record the host state a thermal measurement belongs to.
+# thermal-fingerprint.sh: record the host state a thermal measurement belongs to.
 #
 # A frequency/power/temperature number is only meaningful next to the machine and
 # the policy that produced it. This prints that state, and a single hash over the
@@ -75,12 +75,29 @@ cpu_quota() {
     printf '%s' "${found:-n/a}"
 }
 
+# The published output is redacted by default. A fingerprint that names the host,
+# its exact kernel patch level, its memory and its uptime is a targeting aid, and
+# none of that is needed to compare two machines' CPU policy. FULL=1 prints them
+# for your own records.
+FULL="${FULL:-0}"
+
+kernel_series() { uname -r | sed -E 's/^([0-9]+\.[0-9]+)\..*/\1.x/'; }
+
+KERNEL_LINE="kernel_series=$(kernel_series)"
+MEM_LINE=""
+UPTIME_LINE=""
+if [ "$FULL" = "1" ]; then
+    KERNEL_LINE="kernel=$(uname -r)"
+    MEM_LINE="mem_total_kib=$(mem_kb)
+"
+    UPTIME_LINE="uptime_s=$(cut -d. -f1 /proc/uptime 2>/dev/null)"
+fi
+
 BLOCK="$(
     cat <<EOF
 cpu=$(cpu_model)
 threads=$(threads)
-mem_total_kib=$(mem_kb)
-kernel=$(uname -r)
+$MEM_LINE$KERNEL_LINE
 os=$(os_pretty)
 scaling_driver=$(read_first /sys/devices/system/cpu/cpu0/cpufreq/scaling_driver)
 governor=$(read_first /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
@@ -100,7 +117,7 @@ EOF
 
 HASH="$(printf '%s\n' "$BLOCK" | sha256sum | cut -d' ' -f1)"
 
-echo "thermal fingerprint — captured $(date -Is)"
+echo "thermal fingerprint: captured $(date -Is)"
 echo
 echo "config-hash: sha256:${HASH}"
 echo
@@ -121,4 +138,5 @@ for z in /sys/class/thermal/thermal_zone*; do
         "$(read_first "$z/trip_point_0_type")" \
         "$(read_first "$z/policy")"
 done
-echo "uptime_s=$(cut -d. -f1 /proc/uptime 2>/dev/null)"
+[ -n "$UPTIME_LINE" ] && echo "$UPTIME_LINE"
+[ "$FULL" = "1" ] || echo "(redacted: hostname never printed; exact kernel patch level, memory and uptime require FULL=1)"
