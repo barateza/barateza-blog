@@ -67,8 +67,13 @@ src/
     images/     ← optimized images (avatar, project covers)
   data/
     site-config.ts  ← all site-wide config (nav, hero, socials)
-public/             ← static files (favicon, OG image)
-scripts/            ← build verifier (excluded from Tailwind's source scan)
+public/
+  thermal/          ← the measurements behind the thermal post: results.csv,
+                      environment.txt, timeseries.csv, chart SVGs, raw/ logs
+scripts/
+  verify-build.mjs       ← build verifier (excluded from Tailwind's source scan)
+  thermal-charts.mjs     ← results.csv + raw logs → the chart SVGs (npm prebuild)
+  thermal-fingerprint.sh ← prints the measured host's state and a config hash
 ```
 
 ## License

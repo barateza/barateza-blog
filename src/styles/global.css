@@ -99,4 +99,21 @@ html.dark {
     .prose blockquote {
         @apply font-serif font-normal italic border-none pl-0 text-[1.375em] leading-snug sm:text-[1.66667em];
     }
+
+    /* @tailwindcss/typography decorates inline code with `::before`/`::after`
+       grave accents and no background, so an identifier rendered as
+       `like_this` in the compiled page. No post used inline code before, so it
+       went unnoticed. Fenced blocks are excluded: `pre` already owns its own
+       box, and the plugin already suppresses the accents inside it. */
+    .prose :where(code):not(:where(pre *)) {
+        border-radius: 0.25rem;
+        background-color: var(--bg-muted);
+        padding: 0.083em 0.25em;
+        font-size: 0.9em;
+    }
+
+    .prose :where(code):not(:where(pre *))::before,
+    .prose :where(code):not(:where(pre *))::after {
+        content: none;
+    }
 }
