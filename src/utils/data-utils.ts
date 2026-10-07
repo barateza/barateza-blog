@@ -6,8 +6,12 @@ export function sortItemsByDateDesc(itemA: CollectionEntry<'blog' | 'projects'>,
     // Entries sharing a publishDate would otherwise fall back to whatever order the
     // content collection happens to iterate in, which changed between Astro majors
     // and silently reshuffled the archive, tags index and RSS feed. Break the tie on
-    // id so the result is a stable total order: date descending, then id descending.
-    return byDate !== 0 ? byDate : itemB.id.localeCompare(itemA.id);
+    // id so the result is a stable total order: date descending, then id ASCENDING.
+    // Ascending is not arbitrary: Astro 5's collection iterated the content glob in
+    // path order, so with equal dates the archive listed dubweave-personal-notes
+    // before kcs-search-mcp. `verify:build` diffs rendered text against an Astro 5
+    // baseline, and id descending flipped exactly those pages.
+    return byDate !== 0 ? byDate : itemA.id.localeCompare(itemB.id);
 }
 
 export function getAllTags(posts: CollectionEntry<'blog'>[]) {

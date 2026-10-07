@@ -41,6 +41,21 @@ npm run build && cp -r dist /tmp/baseline
 npm run build && node scripts/verify-build.mjs dist /tmp/baseline
 ```
 
+The Astro 5 → 7 upgrade was verified exactly this way, against a `main` build in a
+separate worktree. It surfaced one real regression that the build alone hid: both
+posts share `publishDate: 'May 25 2026'`, and the relative order of equal dates
+changed with the collection implementation, which reshuffled the archive, the tags
+index and the RSS feed. `sortItemsByDateDesc` now breaks the tie on `id`
+**ascending**, which is the order Astro 5's glob iteration produced.
+
+What is left in the REVIEW tier is whitespace only, and it was checked by
+measuring rather than by eye. The footer nav, the footer social links and the post
+tag list are all `flex` containers with `gap`, so the dropped spaces between items
+are not rendered. Serving the old and new builds side by side and reading
+`getBoundingClientRect()` for those elements gives identical geometry on both —
+same `x`, same widths, same document height — for `/about/` and
+`/blog/kcs-search-mcp/`.
+
 ## Structure
 
 ```
