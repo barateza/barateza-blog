@@ -7,17 +7,17 @@
  *
  * Two tiers of check:
  *
- *   FAIL  — hard guarantees. Page surface, build artifacts, sitemap <lastmod>
+ *   FAIL    hard guarantees. Page surface, build artifacts, sitemap <lastmod>
  *           (i.e. the serializer in astro.config.mjs still runs), RSS content,
  *           Markdown raw-HTML passthrough, <script> structure, and any change to
  *           *rendered content* (compared with whitespace collapsed, so spacing
  *           alone never trips it).
  *
- *   REVIEW— whitespace-only differences. Astro 7 defaults `compressHTML` to
+ *   REVIEW  whitespace-only differences. Astro 7 defaults `compressHTML` to
  *           'jsx', which drops whitespace between inline elements written on
  *           separate source lines. Inside `display: flex`/`grid` containers this
  *           is invisible (whitespace-only text nodes are not flex items), but a
- *           lost space between inline elements in normal flow *is* visible — so
+ *           lost space between inline elements in normal flow *is* visible, so
  *           these are printed for a human to eyeball rather than auto-failed.
  *
  * No dependencies, no network. Exits non-zero only on FAIL.
@@ -84,7 +84,7 @@ function decodeEntities(text) {
 
 /**
  * Reduce an HTML document to the sequence of visible text tokens.
- * Inline tags are transparent (so a lost space merges two tokens — detectable),
+ * Inline tags are transparent (so a lost space merges two tokens, which is detectable),
  * while block/void tags become separators (so block boundaries are ignored).
  */
 function textTokens(html) {
@@ -157,7 +157,7 @@ const sitemapPath = join(distDir, 'sitemap-0.xml');
 if (existsSync(sitemapPath)) {
     const lastmods = [...read(sitemapPath).matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
     if (lastmods.length === 0) {
-        fail('sitemap-0.xml has no <lastmod> entries — the sitemap serialize() hook stopped working');
+        fail('sitemap-0.xml has no <lastmod> entries: the sitemap serialize() hook stopped working');
     } else if (lastmods.some((d) => Number.isNaN(Date.parse(d)))) {
         fail('sitemap-0.xml has an unparseable <lastmod> value');
     } else {
@@ -284,7 +284,7 @@ if (baselineDir) {
     if (spacingPages.length) {
         review(
             `whitespace-only differences in ${spacingPages.length}/${checked} pages ` +
-                `(Astro 7 'jsx' whitespace; invisible inside flex/grid containers — verify by eye):\n${spacingPages.join('\n')}`
+                `(Astro 7 'jsx' whitespace; invisible inside flex/grid containers, verify by eye):\n${spacingPages.join('\n')}`
         );
     } else {
         pass('no whitespace-only differences');

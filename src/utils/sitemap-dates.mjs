@@ -7,7 +7,7 @@ const srcDir = join(__dirname, '..');
 const rootDir = join(srcDir, '..');
 
 /**
- * Naive frontmatter parser — extracts only date fields.
+ * Naive frontmatter parser: extracts only date fields.
  * No gray-matter dependency needed.
  */
 function parseDates(filePath) {
