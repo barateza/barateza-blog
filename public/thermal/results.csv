@@ -1,0 +1,10 @@
+label,mode,pct,turbo,dur_s,events_per_s,bzy_avg_mhz,bzy_min_mhz,bzy_floor_n,ts_intervals,pkgw_avg,pkgw_max,pkgtmp_max_c,sysfs_max_c,hot_samples,throttle_delta
+Z_smoke,raw,71,1,25,4939.61,2357,2013,0,29,21.95,23.97,63,63,0,0
+C2_fft_2400mhz_static,raw,71,1,420,0,2396,1999,0,424,31.55,32.34,82,82,0,0
+T3_fft_turbo_3400mhz,raw,100,0,420,0,1893,800,83,424,31.58,51.54,100,100,155,283300
+CI41_real_unit_tier,raw,41,1,600,0,0,0,0,0,0,0,0,0,0,0
+CI41_real_unit_tier,raw,41,1,1800,0,1300,1295,0,95,15.66,16.83,57,57,0,0
+CI71_real_unit_tier,raw,71,1,1800,0,2399,2371,0,54,23.99,26.08,66,67,0,0
+A_ktrip60_2400mhz,ktrip,71,1,95,0,2400,2400,0,90,31.71,32.12,80,80,0,0
+B_guard_turbo_3400mhz,guard,100,0,185,0,2477,800,6,179,36.57,52.15,100,100,11,7570
+D_partialturbo_2720mhz,raw,80,0,425,0,2700,2700,0,418,41.29,41.62,98,98,206,0
