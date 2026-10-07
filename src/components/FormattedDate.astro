@@ -9,7 +9,12 @@ const { date } = Astro.props;
         date.toLocaleDateString('en-us', {
             year: 'numeric',
             month: 'long',
-            day: 'numeric'
+            day: 'numeric',
+            // Format in UTC so the rendered date does not depend on the build
+            // machine's timezone. Astro 7 hands this component different instants
+            // for the same entry (tag pages get UTC midnight, other pages local
+            // midnight), so a fixed timezone is required for consistent output.
+            timeZone: 'UTC'
         })
     }
 </time>

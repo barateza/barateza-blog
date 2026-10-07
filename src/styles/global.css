@@ -5,6 +5,10 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* Tooling scripts are not UI sources: without this, words like "grid" or
+   "inline" appearing in a script's comments or strings emit unused utilities. */
+@source not '../../scripts';
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
