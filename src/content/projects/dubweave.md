@@ -37,4 +37,4 @@ dubweave is a fully local AI dubbing pipeline: download → transcribe → trans
 
 ## Related Reading
 
-[Building an internal AI assistant for support engineers with MCP](../blog/kcs-search-mcp.md) — Another MCP-based internal tool project that shares a similar philosophy of keeping data local and giving engineers direct access to the systems they trust.
+[Building an internal AI assistant for support engineers with MCP](../blog/kcs-search-mcp.md): Another MCP-based internal tool project that shares a similar philosophy of keeping data local and giving engineers direct access to the systems they trust.

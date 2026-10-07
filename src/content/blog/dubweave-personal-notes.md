@@ -27,7 +27,7 @@ If you give it a local file, it converts to mp4 and pulls out the audio. If you 
 
 ### Station 2: Listen and mark the time
 
-Whisper does two things: First it listens and figures out what language the audio is. Then it transcribes what it hears and marks down the exact time each word starts and stops. That timing is everything — it's the skeleton. If I don't respect it, the dubbed voice will start moving around and the speaker's mouth won't match. So I keep that timing sacred.
+Whisper does two things: First it listens and figures out what language the audio is. Then it transcribes what it hears and marks down the exact time each word starts and stops. That timing is everything: it's the skeleton. If I don't respect it, the dubbed voice will start moving around and the speaker's mouth won't match. So I keep that timing sacred.
 
 ### Station 3: Glue the pieces together
 
@@ -77,7 +77,7 @@ Then if something is too long, I try an LLM rephrase. If that fails, I trim to t
 
 ### Station 6: Speak
 
-I support a bunch of different text-to-speech engines — Kokoro, XTTS v2, Edge, Google, Gemini, ElevenLabs, Supertonic. They all work differently but I make them all follow the same rules: generate audio, measure how long it is, then speed it up or slow it down to fit the time slot. If one breaks, it becomes a short silence instead of killing the whole run. That's not fancy. That's just reliability.
+I support a bunch of different text-to-speech engines (Kokoro, XTTS v2, Edge, Google, Gemini, ElevenLabs, Supertonic). They all work differently but I make them all follow the same rules: generate audio, measure how long it is, then speed it up or slow it down to fit the time slot. If one breaks, it becomes a short silence instead of killing the whole run. That's not fancy. That's just reliability.
 
 ### Station 7: Mix it all together
 
@@ -85,7 +85,7 @@ I build the final audio directly in a numpy array. Each clip sits at its time of
 
 ## How it persists and resumes
 
-Another unique part. If you run dubweave for hours and it stops at station 5, you restart from stage 5 without redoing 1–4. This is baked in:
+Another unique part. If you run dubweave for hours and it stops at station 5, you restart from stage 5 without redoing 1-4. This is baked in:
 
 ```python
 def save_project_stage(name: str, stage: str, data):
