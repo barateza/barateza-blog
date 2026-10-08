@@ -2,14 +2,23 @@
 title: CV
 seo:
   title: Curriculum Vitae
-  description: AI Engineer with a production reliability background. Experience, projects, and technical focus.
+  description: Senior Platform Engineer focused on AWS, Linux, production reliability, automation, and applied AI. Experience, projects, and technical focus.
 ---
 
 ## Summary
 
-AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. I bring log first thinking, root cause focus, and quality gates from years of Linux infrastructure and support engineering.
+Senior Platform Engineer at Sinch, supporting AWS-hosted platform operations for enterprise customers across Latin America. My background combines Linux infrastructure, production troubleshooting, incident response, and automation. Applied AI experience includes a customer support agent deployment, semantic search, MCP tooling, and retrieval evaluation. Based in Brazil and interested in fully remote Platform and Cloud Engineering opportunities.
 
 ## Skills
+
+### Platform and Cloud Operations
+
+- AWS (EC2, CloudFormation, Systems Manager, Route 53)
+- Infrastructure Troubleshooting and Deployment Support
+- Production Incident Response and Escalation Coordination
+- Operational Runbooks and Knowledge Management
+- Windows Server, Chef, Jira, and Confluence
+- Contact Pro (CC365), Cloud Reporting Portal, and SAP BusinessObjects Integrations
 
 ### Core Infrastructure
 
@@ -26,7 +35,7 @@ AI Engineer with a production reliability background. I build LLM pipelines, ret
 - Shell Scripting (Bash, sed, awk)
 - PHP (OOP, PHPUnit, Plesk SDK)
 - Python (asyncio, PyTorch, ML pipelines)
-- Git and CI, CD (GitHub Actions)
+- Git and CI/CD (GitHub Actions)
 - JavaScript and TypeScript
 - Docker and Containerization
 
@@ -42,17 +51,30 @@ AI Engineer with a production reliability background. I build LLM pipelines, ret
 
 ## Experience
 
+### Sinch
+
+**Senior Platform Engineer**
+Jul 2026 to Present · São Paulo, Brazil
+
+- Support production reliability and platform operations for Contact Pro (CC365), an AWS-hosted cloud contact center platform serving enterprise customers across Latin America.
+- Investigate complex incidents across infrastructure, application behavior, and integrations, coordinating resolution across support, platform engineering, and product teams.
+- Troubleshoot AWS environments using EC2, CloudFormation, and Systems Manager; support deployments and incident remediation.
+- Diagnose reporting and integration issues involving Cloud Reporting Portal and SAP BusinessObjects.
+- Author and maintain operational runbooks, escalation maps, and knowledge base documentation in Confluence.
+- Technologies: AWS, Windows Server, Chef, Rails, SAP BusinessObjects, Jira, Confluence, and Contact Pro.
+
 ### WebPros
 
 **Lead Support Engineer**
 Apr 2025 to Present · Lins, São Paulo, Brazil · Remote
 
 - Highest complexity escalations involving Linux internals, mail stack issues, and security response.
-- Perfect 100% CSAT in 2026 (YTD). 297 tickets closed, 38 rated interactions.
-- Lifetime impact: 3,360+ tickets solved with 97.7% CSAT and 97.2% QA average across 4.5 years at WebPros.
+- Recorded 2026 reporting snapshot: 100% CSAT across 38 rated interactions, with 297 tickets closed.
+- Recorded cumulative results at WebPros: 3,360+ tickets solved, 97.7% CSAT, and 97.2% QA average.
 - Stack coverage: Apache, Nginx, Postfix, Dovecot, MySQL, MariaDB, SSL, TLS, PHP. Across CentOS, Ubuntu, CloudLinux, Windows Server.
 - Security response across HTTP flood, credential stuffing, malware, webshells, SMTP compromise, SPF, DKIM, DMARC, HSTS, DANE.
 - KCS certified knowledge publisher for new incident patterns.
+- Top Engineer of the Quarter: Q1 2024, Q4 2024, and Q2 2025.
 
 **AI Enablement Specialist**
 Jul 2025 to Dec 2025 · Lins, São Paulo, Brazil · Remote
@@ -60,7 +82,7 @@ Jul 2025 to Dec 2025 · Lins, São Paulo, Brazil · Remote
 - Deployed an AI agent handling real customer tickets across Plesk and sister brands.
 - Achieved 10 percent ticket deflection against a 15 percent target.
 - Full scope ownership: tooling selection, prompt engineering, knowledge architecture, quality review, ops handoff.
-- Returned to Lead Support by choice when the system was not ready for unsupervised expansion.
+- Delivered the project and handed it off to operations.
 
 **Senior Support Engineer**
 Feb 2024 to Apr 2025 · Lins, São Paulo, Brazil · Remote
@@ -96,21 +118,21 @@ Apr 2020 to Aug 2020 · Brazil · Remote
 
 ## Projects
 
-**Zendesk Real Time Notifier**
-Chrome extension for real time Zendesk ticket monitoring. MV3 with Playwright E2E tests.
+**ddos-analysis**
+Real-time DDoS detection and log analysis scripts written during live incidents. Automates HTTP flood and credential stuffing triage from raw access logs.
+<https://github.com/barateza/ddos-analysis>
+
+**mcp-plesk-dev-docs**
+Semantic search over Plesk documentation using Python, LanceDB, and FastMCP, with vector embeddings, cross-encoder reranking, retrieval evaluation, and quality gates.
+<https://github.com/barateza/mcp-plesk-dev-docs>
+
+**Zendesk Real-Time Notifier**
+Chrome extension for real-time Zendesk ticket monitoring. Manifest V3 architecture and Playwright E2E tests.
 <https://github.com/barateza/barateza-ticket-notifier-v3>
 
 **dubweave**
-Fully local AI dubbing pipeline. Download, transcribe, translate, and dub.
+AI dubbing pipeline covering transcription, translation, speech synthesis, and assembly, with empirical calibration and checkpoint-based resumability.
 <https://github.com/barateza/dubweave>
-
-**mcp-plesk-dev-docs**
-MCP server for semantic search over the Plesk documentation corpus with vector embeddings and cross encoder reranking.
-<https://github.com/barateza/mcp-plesk-dev-docs>
-
-**ddos-analysis**
-Real time DDoS detection and log analysis scripts written during live incidents.
-<https://github.com/barateza/ddos-analysis>
 
 ## Certifications
 
@@ -121,7 +143,8 @@ Real time DDoS detection and log analysis scripts written during live incidents.
 
 ## Education
 
-- UniCesumar. Associate Degree in Systems Analysis and Development. 2024 to 2025.
+- UNIPDS. Postgraduate Program in Software Engineering with Applied AI. May 2026 to May 2027 (in progress).
+- UniCesumar. Associate Degree in Systems Analysis and Development. Jan 2024 to Oct 2025.
 - University of Toronto. Visiting Student in Computer Science. Science Without Borders. 2015 to 2016.
 
 ## Languages

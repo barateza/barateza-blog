@@ -8,9 +8,9 @@ const siteConfig: SiteConfig = {
         alt: 'Gilson Siqueira'
     },
     title: 'Gilson Siqueira',
-    subtitle: 'AI Engineer. LLM pipelines, retrieval systems, production reliability.',
+    subtitle: 'Senior Platform Engineer. AWS, Linux, production reliability, applied AI.',
     description:
-        'AI Engineer building RAG systems, MCP tooling, and internal AI workflows with a production support mindset. Based in São Paulo, Brazil, working remotely.',
+        'Senior Platform Engineer focused on AWS, Linux, production reliability, and automation, with applied AI as a practical differentiator. Based in Brazil.',
     image: {
         src: '/og-preview.jpg',
         alt: 'Gilson Siqueira, barateza.org'
@@ -65,7 +65,7 @@ const siteConfig: SiteConfig = {
         {
             text: 'Contact',
             href: '/contact'
-        },
+        }
     ],
     socialLinks: [
         {
@@ -82,7 +82,7 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        text: 'AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. I bring production support instincts to AI infrastructure. Measure first, calibrate second, ship what survives real workflows.\n\n- 10 years in Linux infrastructure and technical support.\n- 10% AI ticket deflection in production workflows.\n- 3x Top Engineer of the Quarter, 1.0 CSAT in 2026.\n\nBased in Lins, São Paulo, Brazil. Remote since 2020.',
+        text: 'I am a Senior Platform Engineer at Sinch, working on AWS-hosted platform operations and production reliability for enterprise customers across Latin America. My background combines Linux troubleshooting, incident response, and automation. I turn recurring problems into scripts, runbooks, and reusable technical knowledge.\n\n- Technical support since 2020, Linux and hosting infrastructure since 2021.\n- 3x Top Engineer of the Quarter at WebPros/Plesk.\n- 10% ticket deflection from a customer support AI deployment in 2025.\n\nApplied AI is part of my toolkit: semantic search, MCP tooling, and evaluated workflows that reduce operational load.\n\nBased in Lins, São Paulo, Brazil. Remote since 2020.',
         actions: [
             {
                 text: 'View Projects',

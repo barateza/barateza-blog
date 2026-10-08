@@ -1,6 +1,6 @@
 # barateza.org
 
-Personal site and blog of [Gilson Siqueira](https://barateza.org), Lead Technical Support Engineer at WebPros.
+Personal site and blog of [Gilson Siqueira](https://barateza.org), Senior Platform Engineer at Sinch, focused on cloud operations, production reliability, automation, and applied AI.
 
 Built with [Astro](https://astro.build) + [Dante theme](https://github.com/JustGoodUI/dante-astro-theme), deployed on Vercel.
 

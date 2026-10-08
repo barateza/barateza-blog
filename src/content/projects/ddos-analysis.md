@@ -2,7 +2,7 @@
 title: 'ddos-analysis'
 description: Real-time DDoS detection and log analysis scripts written during an actual incident. Automates triage of HTTP flood and credential stuffing from raw access logs.
 publishDate: 'Jun 01 2024'
-isFeatured: false
+isFeatured: true
 tags:
   - Shell
   - Bash
