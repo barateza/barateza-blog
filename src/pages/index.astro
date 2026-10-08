@@ -12,7 +12,15 @@ const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
 const featuredPosts = posts.filter(({ data }) => data.isFeatured);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+const featuredProjectOrder = new Map<string, number>([
+    ['ddos-analysis', 0],
+    ['mcp-plesk-dev-docs', 1],
+    ['zendesk-notifier', 2],
+    ['dubweave', 3]
+]);
+const featuredProjects = projects
+    .filter(({ data }) => data.isFeatured)
+    .sort((a, b) => (featuredProjectOrder.get(a.id) ?? Infinity) - (featuredProjectOrder.get(b.id) ?? Infinity) || sortItemsByDateDesc(a, b));
 ---
 
 <BaseLayout description={siteConfig.description}>
@@ -33,10 +41,10 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
     <div class="mb-16 sm:mb-24">
         <h2 class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">What I Work On</h2>
         <ul class="space-y-2 text-sm leading-relaxed sm:text-base">
-            <li>Retrieval systems and semantic search.</li>
-            <li>LLM pipelines with evaluation, calibration, and quality gates.</li>
-            <li>Internal AI tooling for support and operations teams.</li>
-            <li>Automation across Linux, APIs, and developer workflows.</li>
+            <li>AWS-hosted platform operations and production troubleshooting.</li>
+            <li>Linux infrastructure, incident response, and operational runbooks.</li>
+            <li>Automation across Python, Bash, APIs, and developer workflows.</li>
+            <li>Applied AI: semantic search, MCP tooling, and evaluated support workflows.</li>
         </ul>
     </div>
     {
@@ -55,8 +63,8 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
     <div class="mb-16 sm:mb-24">
         <h2 class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">Background</h2>
         <p class="max-w-2xl text-sm leading-relaxed sm:text-base">
-            I build AI systems with a production reliability mindset shaped by 10 years of Linux infrastructure and support engineering.
-            I focus on real workflows, measurable outcomes, and tooling that reduces operational load.
+            My path runs from technical support and Linux infrastructure to senior platform operations at Sinch. I focus on root cause, reliable production
+            workflows, and automation that reduces operational load, including applied AI where it helps.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
             <Button href="/about">Read About</Button>

@@ -2,33 +2,38 @@
 title: About
 seo:
   title: About
-  description: AI Engineer with a production reliability background building LLM pipelines, retrieval systems, and internal AI tooling.
+  description: Senior Platform Engineer at Sinch focused on AWS, Linux, production reliability, automation, and applied AI.
   image:
     src: '../../assets/images/avatar.jpg'
     alt: Gilson Siqueira
 ---
 
-I am an AI Engineer with a production reliability background. I build LLM pipelines, retrieval systems, and internal AI tooling that engineers actually use. My work is shaped by years of Linux infrastructure and support engineering, where the standard is to measure first and fix the root cause.
+I am a Senior Platform Engineer at Sinch, supporting the reliability and operation of an AWS-hosted cloud contact center platform for enterprise customers across Latin America. My background combines Linux infrastructure, production troubleshooting, incident response, and automation.
 
 ## Career Arc
 
-I spent over a decade in technical support and Linux infrastructure, moving from front line support to leading high complexity escalations. That path taught me how to diagnose systems under pressure, reduce repeat incidents, and design tooling that survives real workflows.
+I have worked in technical support since 2020 and Linux and hosting infrastructure since 2021. At WebPros/Plesk, I progressed from Support Engineer to Lead Support Engineer, handling complex escalations across web servers, mail, DNS, databases, cloud deployments, and security incidents.
+
+In 2025, I led an AI Enablement deployment across Plesk and sister brands, covering tooling evaluation, prompt and workflow engineering, knowledge architecture, quality review, and operational handoff. The agent achieved 10% ticket deflection.
+
+In July 2026, I joined Sinch as a Senior Platform Engineer. My work includes AWS infrastructure troubleshooting, deployment support, incident remediation, reporting integrations, and operational documentation.
 
 ## Working Style
 
-I start with evidence, not intuition. Logs, traces, and reproducible steps come first. I optimize for clarity, follow through on root cause, and document outcomes so the next engineer does not have to relearn the same lesson.
+I start with evidence: logs, traces, and reproducible steps. I follow through on root cause and document outcomes so the next engineer does not have to relearn the same lesson. Recurring operational problems become candidates for scripts, runbooks, or reusable tooling.
 
 ## Current Focus
 
-I am focused on LLM pipelines, retrieval systems, evaluation harnesses, and internal AI products for support and operations teams. I care about quality gates, calibration, and sustained reliability over demos.
+Platform and cloud operations are my main focus: production reliability, AWS, Linux, incident response, and automation. Applied AI is a practical differentiator, supported by projects in semantic search, MCP tooling, retrieval evaluation, and support workflows.
+
+My personal projects include [DDoS log analysis](/projects/ddos-analysis), [semantic search over Plesk documentation](/projects/mcp-plesk-dev-docs), a [Zendesk monitoring extension](/projects/zendesk-notifier), and the [dubweave dubbing pipeline](/projects/dubweave).
 
 ## Credibility Highlights
 
-- 3x Top Engineer of the Quarter at WebPros.
-- Perfect 100% CSAT in 2026 (YTD).
-- 3,360+ tickets solved with 97.7% lifetime CSAT.
-- 10 percent AI ticket deflection in production workflows.
-- KCS v6 Fundamentals certification.
+- 3x Top Engineer of the Quarter at WebPros/Plesk: Q1 2024, Q4 2024, and Q2 2025.
+- 10% ticket deflection from the 2025 customer support AI deployment.
+- AWS Certified Cloud Practitioner and KCS v6 Fundamentals certifications.
+- Fluent English, C2 Proficient.
 - Remote work since 2020.
 
-If you want a deeper view of my work history and outcomes, see the [CV](/cv) page.
+For my work history, technical scope, and recorded outcomes, see the [CV](/cv). For fully remote Platform and Cloud Engineering opportunities, [get in touch](/contact).

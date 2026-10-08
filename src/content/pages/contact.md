@@ -2,9 +2,10 @@
 title: Get in touch
 seo:
   title: Contact
-  description: Contact Gilson Siqueira about AI engineering, retrieval systems, or collaboration.
+  description: Contact Gilson Siqueira about remote Platform and Cloud Engineering opportunities, production reliability, automation, or applied AI.
 ---
-If you want to discuss AI engineering, retrieval systems, or internal tooling, this is the fastest way to reach me.
+
+For Platform and Cloud Engineering opportunities, production troubleshooting, automation, or applied AI collaboration, this is the fastest way to reach me.
 
 Email
 
@@ -18,4 +19,4 @@ Social
 
 Availability
 
-I am open to AI Engineer roles with remote teams.
+Based in Lins, São Paulo, Brazil. Open to fully remote Platform and Cloud Engineering opportunities, as a contractor or employee. Fluent English, C2 Proficient.

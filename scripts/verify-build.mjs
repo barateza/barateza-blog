@@ -29,7 +29,7 @@ const distDir = process.argv[2] ?? 'dist';
 const baselineDir = process.argv[3] ?? null;
 
 /** Expected page surface of this site. */
-const EXPECTED_HTML_PAGES = 25;
+const EXPECTED_HTML_PAGES = 31;
 const REQUIRED_FILES = ['rss.xml', 'sitemap-index.xml', 'sitemap-0.xml'];
 const MAX_REGIONS_PER_PAGE = 3;
 
