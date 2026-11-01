@@ -21,7 +21,24 @@ npm run dev          # http://localhost:4321
 npm run build        # production build → ./dist/
 npm run preview      # preview production build locally
 npm run verify:build # assert the build output is intact (see below)
+npm run og           # re-render the social cards (see below)
 ```
+
+### Social cards
+
+`public/og-preview.jpg` is the site-wide `og:image`, and posts without their own
+`seo.image` get a card under `src/assets/images/og/`. Both are 1200×630 and
+generated, not hand-made, because LinkedIn renders a link card at roughly 400px
+wide — type has to survive a 3× downscale, so the layout is text-first and
+deliberately large:
+
+```bash
+npm run og              # site card + cards for posts still missing seo.image
+npm run og -- --force   # also re-render cards for posts that already have one
+```
+
+The script prints the `seo.image.src` line to paste into a post's frontmatter.
+Regenerate after changing the avatar, the tagline, or a post title.
 
 ### Verifying a build
 

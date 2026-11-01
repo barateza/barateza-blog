@@ -35,6 +35,7 @@ const { Content } = await render(project);
     pageType="article"
     schemaType="CreativeWork"
     publishedAt={publishDate}
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Projects', href: '/projects/' }, { label: title }]}
     showHeader={false}
 >
     <article class="mb-16 sm:mb-24">

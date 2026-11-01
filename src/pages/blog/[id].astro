@@ -38,6 +38,7 @@ const { Content } = await render(post);
     publishedAt={publishDate}
     updatedAt={updatedDate}
     keywords={tags}
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog/' }, { label: title }]}
     showHeader={false}
 >
     <article class="mb-16 sm:mb-24">

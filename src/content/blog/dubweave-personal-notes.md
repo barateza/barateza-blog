@@ -12,6 +12,9 @@ seo:
   pageType: article
   title: Dubweave, for Aline
   description: A warm, simple technical deep dive into dubweave, the fully local dubbing pipeline I built for my wife.
+  image:
+    src: '../../assets/images/og/dubweave-personal-notes.jpg'
+    alt: Dubweave, for Aline
 ---
 I built dubweave for my wife, Aline. She speaks Portuguese, and I kept finding these videos (essays, documentaries, interviews) that I wanted to show her. Subtitles help, yeah, but it's not the same. When you dub something, you can both just... listen. You sit together and watch without the reading part happening in your head.
 
