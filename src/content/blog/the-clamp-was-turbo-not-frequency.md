@@ -12,6 +12,9 @@ seo:
   pageType: article
   title: The clamp was turbo, not frequency
   description: "Re-measuring a 2013 laptop's CPU cap with a cooldown gate and turbostat: the 800 MHz clamp comes from turbo, and the CI unit tier went from 95 s to 54 s."
+  image:
+    src: '../../assets/images/og/the-clamp-was-turbo-not-frequency.jpg'
+    alt: The clamp was turbo, not frequency
 ---
 
 Two rows in my own notes could not both be true.
