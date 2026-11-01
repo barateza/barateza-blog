@@ -1,0 +1,5 @@
+# barateza.org — all crawlers are welcome; the sitemap lists every page.
+User-agent: *
+Allow: /
+
+Sitemap: https://barateza.org/sitemap.xml

@@ -11,6 +11,10 @@ const siteConfig: SiteConfig = {
     subtitle: 'AI Engineer. LLM pipelines, retrieval systems, production reliability.',
     description:
         'AI Engineer building RAG systems, MCP tooling, and internal AI workflows with a production support mindset. Based in São Paulo, Brazil, working remotely.',
+    pageDescriptions: {
+        blog: 'Field notes on LLM pipelines, retrieval, Linux performance, and support engineering, written from measurements rather than intuition.',
+        projects: 'AI and infrastructure work built around real workflows: local AI dubbing, real-time ticket monitoring, MCP semantic search, and incident log triage.'
+    },
     image: {
         src: '/og-preview.jpg',
         alt: 'Gilson Siqueira, barateza.org'

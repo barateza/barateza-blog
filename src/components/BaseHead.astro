@@ -12,10 +12,16 @@ export type Props = {
     description?: string;
     image?: ImageInput | undefined;
     pageType?: 'website' | 'article';
+    /** schema.org type for the page itself; omitted means only Person + WebSite are emitted. */
+    schemaType?: 'BlogPosting' | 'CreativeWork';
+    publishedAt?: Date;
+    updatedAt?: Date;
+    keywords?: string[];
 };
 
-const { description = '', pageType = 'website' } = Astro.props;
-const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
+const { description = '', pageType = 'website', schemaType, publishedAt, updatedAt, keywords } = Astro.props;
+const pageTitle = Astro.props.title;
+const title = [pageTitle, siteConfig.title].filter(Boolean).join(' | ');
 const image = Astro.props.image ?? siteConfig.image;
 let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {
@@ -53,6 +59,71 @@ function formatCanonicalURL(url: string | URL) {
     // otherwise, canonical URL always has a trailing slash
     return path.replace(/\/?$/, hasQueryParams ? '' : '/');
 }
+
+const canonical = formatCanonicalURL(canonicalURL);
+const origin = (Astro.site ?? new URL(siteConfig.website)).origin;
+const personId = `${origin}/#person`;
+const websiteId = `${origin}/#website`;
+
+let personImage: string | undefined;
+if (siteConfig.avatar?.src) {
+    personImage =
+        typeof siteConfig.avatar.src === 'string'
+            ? new URL(siteConfig.avatar.src, Astro.site).toString()
+            : new URL((await getImage({ src: siteConfig.avatar.src, width: 400, height: 400, format: 'jpeg', fit: 'cover' })).src, Astro.site).toString();
+}
+
+/**
+ * One @graph per page: the person, the site, and — on content pages — the work
+ * itself. Emitted as JSON-LD so crawlers get entities rather than only meta tags.
+ */
+const graph: Record<string, unknown>[] = [
+    {
+        '@type': 'Person',
+        '@id': personId,
+        name: siteConfig.title,
+        url: `${origin}/`,
+        description: siteConfig.description,
+        jobTitle: 'AI Engineer',
+        ...(personImage ? { image: personImage } : {}),
+        sameAs: siteConfig.socialLinks?.map((link) => link.href) ?? []
+    },
+    {
+        '@type': 'WebSite',
+        '@id': websiteId,
+        url: `${origin}/`,
+        name: siteConfig.title,
+        description: siteConfig.description,
+        inLanguage: 'en',
+        publisher: { '@id': personId }
+    }
+];
+
+if (schemaType) {
+    const modified = updatedAt ?? publishedAt;
+    // Content dates carry no time of day; emit date-only so a build in another
+    // timezone cannot shift the calendar day.
+    const isoDate = (date: Date) => date.toISOString().slice(0, 10);
+    graph.push({
+        '@type': schemaType,
+        '@id': `${canonical}#${schemaType === 'BlogPosting' ? 'article' : 'work'}`,
+        isPartOf: { '@id': websiteId },
+        mainEntityOfPage: { '@id': canonical },
+        url: canonical,
+        ...(schemaType === 'BlogPosting' ? { headline: pageTitle ?? title } : { name: pageTitle ?? title }),
+        ...(description ? { description } : {}),
+        ...(resolvedImage?.src ? { image: [resolvedImage.src] } : {}),
+        ...(publishedAt ? { datePublished: isoDate(publishedAt) } : {}),
+        ...(modified ? { dateModified: isoDate(modified) } : {}),
+        author: { '@id': personId },
+        publisher: { '@id': personId },
+        ...(keywords?.length ? { keywords: keywords.join(', ') } : {}),
+        inLanguage: 'en'
+    });
+}
+
+// `\u003c` keeps a literal `</script>` inside post text from closing the tag early.
+const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 ---
 
 <!-- High Priority Global Metadata -->
@@ -71,12 +142,12 @@ function formatCanonicalURL(url: string | URL) {
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
 <!-- Page Metadata -->
-<link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
+<link rel="canonical" href={canonical} />
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={pageType} />
-<meta property="og:url" content={formatCanonicalURL(canonicalURL)} />
+<meta property="og:url" content={canonical} />
 <meta property="og:title" content={title} />
 {description && <meta property="og:description" content={description} />}
 {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
@@ -84,8 +155,11 @@ function formatCanonicalURL(url: string | URL) {
 
 <!-- X/Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={formatCanonicalURL(canonicalURL)} />
+<meta name="twitter:url" content={canonical} />
 <meta name="twitter:title" content={title} />
 {description && <meta name="twitter:description" content={description} />}
 {resolvedImage?.src && <meta name="twitter:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta name="twitter:image:alt" content={resolvedImage.alt} />}
+
+<!-- Structured data: Person + WebSite everywhere, the work itself on content pages -->
+<script type="application/ld+json" is:inline set:html={structuredData} />
