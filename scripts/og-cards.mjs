@@ -8,7 +8,7 @@
  *
  * Outputs:
  *   public/og-preview.jpg          the site-wide og:image (siteConfig.image)
- *   src/assets/images/og/<id>.jpg  one 1200x630 card per blog post
+ *   src/assets/images/og/<id>.jpg  one 1200x627 card per blog post
  *
  * Post cards live under src/assets because `seo.image` in content frontmatter
  * is typed as an Astro image import, so a public/ URL cannot be referenced
@@ -30,7 +30,11 @@ import sharp from 'sharp';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WIDTH = 1200;
-const HEIGHT = 630;
+// 1200x627 is 1.9136:1 — the ratio LinkedIn documents for a large card. At
+// 1200x630 (1.9048:1) LinkedIn downgrades the share to its 160px thumbnail
+// (media.licdn.com …/articleshare-shrink_160/…), which is what made the card
+// look like a smudge while Facebook, which shows it much larger, looked fine.
+const HEIGHT = 627;
 const BACKGROUND = '#f2f1ec'; // --bg-main of the default theme
 const INK = '#171717'; // --text-main
 const MUTED_INK = '#4a4a48';
@@ -101,10 +105,25 @@ function formatDate(value) {
 
 /** Post card: kicker, big serif title, date. */
 async function renderPostCard({ id, title, publishDate }) {
-    const lines = wrap(title, 76, 980).slice(0, 3);
-    const startY = 300 - (lines.length - 1) * 44;
+    // A three-line title has to shrink, or its first line rides up into the
+    // kicker. Wrap twice rather than scaling blindly: the second pass decides
+    // the line count at the smaller size.
+    const maxWidth = 1020;
+    let fontSize = 76;
+    let lines = wrap(title, fontSize, maxWidth);
+    if (lines.length > 2) {
+        fontSize = 62;
+        lines = wrap(title, fontSize, maxWidth);
+    }
+    lines = lines.slice(0, 3);
+    const lineHeight = Math.round(fontSize * 1.12);
+    const centreY = 312;
+    const firstBaseline = centreY - ((lines.length - 1) * lineHeight) / 2 + fontSize * 0.34;
     const text = lines
-        .map((line, index) => `<text x="90" y="${startY + index * 88}" font-family="${FONT_SERIF}" font-size="76" fill="${INK}">${line.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`)
+        .map(
+            (line, index) =>
+                `<text x="90" y="${(firstBaseline + index * lineHeight).toFixed(1)}" font-family="${FONT_SERIF}" font-size="${fontSize}" fill="${INK}">${line.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</text>`
+        )
         .join('\n  ');
 
     const card = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}">

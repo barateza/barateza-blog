@@ -13,7 +13,7 @@ seo:
   title: Building an internal AI assistant for support engineers with MCP
   description: A practical look at turning an internal Kubernetes search stack into MCP tools for knowledge base, ticket, and docs lookup.
   image:
-    src: '../../assets/images/hero-blog-mcp-plesk.webp'
+    src: '../../assets/images/og/kcs-search-mcp.jpg'
     alt: Building an internal AI assistant for support engineers with MCP
 ---
 

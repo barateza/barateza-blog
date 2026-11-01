@@ -27,7 +27,7 @@ npm run og           # re-render the social cards (see below)
 ### Social cards
 
 `public/og-preview.jpg` is the site-wide `og:image`, and posts without their own
-`seo.image` get a card under `src/assets/images/og/`. Both are 1200×630 and
+`seo.image` get a card under `src/assets/images/og/`. Both are 1200×627 (1.91:1, the ratio LinkedIn wants for a large card) and
 generated, not hand-made, because LinkedIn renders a link card at roughly 400px
 wide — type has to survive a 3× downscale, so the layout is text-first and
 deliberately large:
