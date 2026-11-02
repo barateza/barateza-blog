@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const description =
+    'How Inbox Organizer accesses, uses, stores and deletes Google user data, including its Limited Use commitments under the Google API Services User Data Policy.';
+
+const updated = '2 November 2026';
+---
+
+<BaseLayout
+    title="Inbox Organizer Privacy Policy"
+    description={description}
+    showHeader={false}
+    pageType="article"
+    breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Inbox Organizer', href: '/inbox' }, { label: 'Privacy Policy' }]}
+>
+    <article class="mb-16 sm:mb-24">
+        <header class="mb-10">
+            <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">Privacy Policy</h1>
+            <p class="mt-4 text-sm opacity-60">
+                Inbox Organizer · Last updated {updated}
+            </p>
+        </header>
+
+        <div class="prose sm:prose-lg max-w-none">
+            <p>
+                Inbox Organizer ("the app") is a self-hosted application that sorts the Gmail mailbox of a single person, the person who installed it. This
+                policy explains exactly what the app does with Google user data, where that data goes, and how to delete it.
+            </p>
+
+            <p>
+                The app is installed and operated by its user. There is no hosted service, no shared infrastructure, and no server operated by the author that
+                receives mail or credentials.
+            </p>
+
+            <h2>In short</h2>
+            <ul>
+                <li>The app runs on the user's own computer.</li>
+                <li>Gmail data is stored only on that computer, in a local SQLite database.</li>
+                <li>Nothing is sent to the author, to a model provider, or to any third party.</li>
+                <li>Nothing is sold, shared, or used for advertising.</li>
+                <li>Deleting one folder removes the data permanently.</li>
+            </ul>
+
+            <h2>What data the app accesses</h2>
+            <p>
+                When a Google Account is connected, the app requests a single OAuth scope,
+                <code>gmail.modify</code>. That scope is used to read messages and to apply labels, archive messages, and move messages to Trash. The app reads:
+            </p>
+            <ul>
+                <li>Message headers: sender name and address, recipients, subject, date, and list-unsubscribe headers.</li>
+                <li>Message content: the plain-text body and a short snippet.</li>
+                <li>Gmail labels attached to the message, including system labels such as <code>INBOX</code>, <code>UNREAD</code> and <code>STARRED</code>.</li>
+                <li>An OAuth refresh token, which lets the app reconnect without asking again.</li>
+            </ul>
+            <p>
+                The app does not request access to Google Contacts, Calendar, Drive, Photos, or any other Google service. It does not request permission to
+                permanently delete messages, and it does not contain a code path that does so.
+            </p>
+
+            <h2>How the data is used</h2>
+            <ul>
+                <li>To display one message at a time as a card in the sorting interface.</li>
+                <li>To score that card and propose a disposition, using rules, sender history and a local embedding model.</li>
+                <li>To record the decision the user makes, so later cards can be scored better.</li>
+                <li>To apply the chosen action back to Gmail: add labels, archive, star, or move to Trash.</li>
+            </ul>
+            <p>
+                This is the entire purpose. Message content is not used to build advertising profiles, is not used to measure engagement, and is not repurposed
+                for any other feature.
+            </p>
+
+            <h2>Where the data is stored</h2>
+            <p>
+                All mail data, all decisions, and the OAuth refresh token are written to one SQLite file,
+                <code>data/organizer.db</code>, on the machine where the app is running. The app listens on
+                <code>127.0.0.1</code> by default, so nothing is reachable from the network unless its user deliberately changes the bind address.
+            </p>
+            <p>
+                There is no cloud storage, no remote backup, and no synchronization between devices. If the user exposes the app on their local network to swipe
+                from a phone, the traffic stays inside that network.
+            </p>
+
+            <h2>Sharing and third parties</h2>
+            <p>
+                None. The app does not send Google user data to the author, to any analytics service, to any advertising network, or to any third-party API. It
+                talks to exactly one remote service: Google's Gmail API, over HTTPS, using the token the user granted.
+            </p>
+            <p>
+                Classification runs locally. The embedding model used for semantic scoring is executed on the user's own hardware; message text is never
+                transmitted to a model provider, whether hosted or otherwise.
+            </p>
+            <p>
+                Separately from the app, this website (<code>barateza.org</code>) uses Vercel Analytics, which records page views only. It has no access to any
+                Gmail data.
+            </p>
+
+            <h2>AI and model processing</h2>
+            <p>
+                Semantic scoring uses an open-weight embedding model (EmbeddingGemma 2, 270M parameters) running locally through ONNX. Vectors are computed on
+                the local machine and stored next to the messages they describe.
+            </p>
+            <p>
+                No message content is used to train or improve a general-purpose model. Any learning is limited to the single user's own accounts and decisions,
+                which is the personalised-model exception described in the Google API Services User Data Policy.
+            </p>
+
+            <h2>Google API Services User Data Policy</h2>
+            <p>
+                <strong>
+                    Inbox Organizer's use and transfer to any other app of information received from Google APIs will adhere to the
+                    <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited
+                    Use requirements.
+                </strong>
+            </p>
+            <p>In line with those requirements, the app:</p>
+            <ul>
+                <li>uses Google user data only to provide the sorting features described above;</li>
+                <li>
+                    does not transfer Google user data to third parties, except as necessary to provide those features, to comply with applicable law, or as
+                    part of a merger or acquisition with notice;
+                </li>
+                <li>does not use Google user data for serving advertisements, including personalised or retargeted advertising;</li>
+                <li>
+                    does not allow humans to read Google user data, except where the user gave explicit consent, where it is necessary for security purposes
+                    such as investigating abuse, to comply with applicable law, or for the app's internal operations when the data has been aggregated and
+                    anonymised;
+                </li>
+                <li>does not use Google user data to determine creditworthiness or for lending purposes.</li>
+            </ul>
+
+            <h2>Retention and deletion</h2>
+            <ul>
+                <li><strong>Messages moved to Trash</strong> are retained by Google for 30 days before permanent deletion, as with any Gmail trash.</li>
+                <li>
+                    <strong>Disconnecting</strong> the account stops all further access. The app provides a disconnect action, and access can be revoked at any time
+                    from <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+                </li>
+                <li>
+                    <strong>Deleting the local database</strong> removes all stored mail data, decisions and the OAuth token. This is done by deleting the <code
+                        >data/</code
+                    > directory; there is no other copy.
+                </li>
+                <li><strong>Uninstalling</strong> the app removes the code; deleting its data directory removes the data.</li>
+            </ul>
+            <p>
+                Because the app is self-hosted, the person who can delete the data is the same person who owns it. There is no third party holding a copy that
+                would need to be contacted.
+            </p>
+
+            <h2>Security</h2>
+            <p>
+                The OAuth refresh token is stored in the local database in plain text, protected only by the file permissions of the account running the app and
+                by disk encryption if enabled. The app does not transmit it anywhere except to Google's token endpoint, over HTTPS.
+            </p>
+            <p>
+                Because the token grants access to the mailbox, the app should be run on a machine the user controls, with full-disk encryption enabled, and the
+                token should be revoked from the Google Account permissions page if the machine is lost or shared.
+            </p>
+
+            <h2>Children</h2>
+            <p>
+                The app is a personal productivity tool and is not directed at children under 13. It is not intended for use by anyone other than the person who
+                installed it.
+            </p>
+
+            <h2>Changes to this policy</h2>
+            <p>
+                If the app starts handling data differently, for example by adding a hosted sync component, this page will be updated before that version is
+                released and the date at the top will change. Material changes will also be noted in the project's changelog.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+                Questions about this policy or about how the app handles Google user data can be sent to
+                <a href="mailto:gilson@barateza.org">gilson@barateza.org</a>. This is also the address used as the application's support contact.
+            </p>
+        </div>
+
+        <footer class="mt-12 text-xs leading-relaxed opacity-60">
+            <p>
+                <a class="underline decoration-dashed underline-offset-2 hover:decoration-solid" href="/inbox">← Back to Inbox Organizer</a>
+            </p>
+        </footer>
+    </article>
+</BaseLayout>

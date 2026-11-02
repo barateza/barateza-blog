@@ -1,0 +1,136 @@
+---
+import Button from '../../components/Button.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const description =
+    'Inbox Organizer is a self-hosted tool that sorts Gmail by swiping: trash, keep, prioritise or archive. It runs on your own machine and keeps your mail there.';
+
+const gestures = [
+    {
+        key: 'left',
+        arrow: '←',
+        name: 'Trash',
+        body: 'Newsletters you never read, notifications from services you stopped using.',
+        effect: 'Moves the message to Gmail Trash, recoverable for 30 days.'
+    },
+    {
+        key: 'down',
+        arrow: '↓',
+        name: 'Archive',
+        body: 'Receipts, shipping updates, confirmations. Worth keeping, not worth seeing.',
+        effect: 'Removes the message from the inbox and labels it Organizer/Archived.'
+    },
+    {
+        key: 'right',
+        arrow: '→',
+        name: 'Keep',
+        body: 'Real conversations that need an answer or a decision from you.',
+        effect: 'Leaves the message in the inbox and labels it Organizer/Keep.'
+    },
+    {
+        key: 'up',
+        arrow: '↑',
+        name: 'Priority',
+        body: 'The few things you want to see first tomorrow morning.',
+        effect: 'Labels it Organizer/Priority, stars it, and surfaces it at the top.'
+    }
+];
+
+const steps = [
+    {
+        title: 'Connect your own Google Cloud project',
+        body: 'The app asks for one OAuth scope, gmail.modify, using an OAuth client you create in your own Google account. No intermediary service is involved at any point.'
+    },
+    {
+        title: 'Swipe the deck',
+        body: 'Cards arrive one at a time with the sender, subject and a short preview. Four gestures, keyboard shortcuts, and an undo that reverses what was written to Gmail.'
+    },
+    {
+        title: 'It learns your sorting',
+        body: 'Every swipe is a labelled example. Sender history and a local embedding model build a per-account classifier, so the deck starts ordering itself and you swipe less.'
+    }
+];
+---
+
+<BaseLayout title="Inbox Organizer" description={description} showHeader={false} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Inbox Organizer' }]}>
+    <article class="mb-16 sm:mb-24">
+        <header class="mb-12 sm:mb-16">
+            <p class="mb-4 font-mono text-xs tracking-widest uppercase opacity-60">Self-hosted Gmail triage</p>
+            <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">Inbox Organizer</h1>
+            <p class="mt-5 max-w-2xl text-base leading-relaxed sm:text-lg">
+                A Gmail sorting tool you swipe like a deck of cards. Trash, keep, prioritise or archive, one message at a time, and the deck learns your taste
+                as you go. It runs on your own machine and your mail never leaves it.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <Button href="/inbox/privacy">Privacy policy</Button>
+                <Button href="mailto:gilson@barateza.org">Ask a question</Button>
+            </div>
+        </header>
+
+        <section class="mb-12 sm:mb-16">
+            <h2 class="mb-6 font-serif text-xl italic sm:text-2xl">Four gestures</h2>
+            <div class="grid gap-4 sm:grid-cols-2">
+                {
+                    gestures.map((g) => (
+                        <div class="border-main rounded-xl border p-5">
+                            <div class="mb-3 flex items-center gap-3">
+                                <span class="border-main flex h-9 w-9 items-center justify-center rounded-full border font-serif text-lg leading-none">
+                                    {g.arrow}
+                                </span>
+                                <h3 class="font-serif text-lg leading-none">{g.name}</h3>
+                            </div>
+                            <p class="mb-3 text-sm leading-relaxed opacity-80">{g.body}</p>
+                            <p class="text-xs leading-relaxed opacity-60">{g.effect}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="mb-12 sm:mb-16">
+            <h2 class="mb-6 font-serif text-xl italic sm:text-2xl">How it works</h2>
+            <ol class="space-y-6">
+                {
+                    steps.map((s, i) => (
+                        <li class="flex gap-4">
+                            <span class="mt-0.5 font-serif text-lg leading-none opacity-40">{String(i + 1).padStart(2, '0')}</span>
+                            <div>
+                                <h3 class="mb-1 text-sm font-semibold sm:text-base">{s.title}</h3>
+                                <p class="max-w-2xl text-sm leading-relaxed opacity-80">{s.body}</p>
+                            </div>
+                        </li>
+                    ))
+                }
+            </ol>
+        </section>
+
+        <section class="mb-12 sm:mb-16">
+            <h2 class="mb-6 font-serif text-xl italic sm:text-2xl">What it does not do</h2>
+            <ul class="max-w-2xl space-y-2 text-sm leading-relaxed sm:text-base">
+                <li>It does not read your Contacts, Calendar, or Drive. Only Gmail, and only with the scope you grant.</li>
+                <li>It does not permanently delete anything. Trash is trash, and undo is one gesture.</li>
+                <li>It does not send your mail to a model provider, an analytics service, or a server I run.</li>
+                <li>It does not hold your credentials anywhere but the SQLite file on your own disk.</li>
+            </ul>
+        </section>
+
+        <section class="border-main rounded-xl border p-6">
+            <h2 class="mb-3 font-serif text-lg italic">Where your data goes</h2>
+            <p class="mb-4 max-w-2xl text-sm leading-relaxed opacity-80">
+                Everything the app reads is written to a single SQLite database on the machine running it. The full detail, including how Google user data is
+                handled under the Google API Services User Data Policy, is in the privacy policy.
+            </p>
+            <Button href="/inbox/privacy">Read the privacy policy</Button>
+        </section>
+
+        <footer class="mt-12 text-xs leading-relaxed opacity-60">
+            <p>
+                Inbox Organizer is a personal, self-hosted project by
+                <a class="underline decoration-dashed underline-offset-2 hover:decoration-solid" href="/">Gilson Siqueira</a>. Questions: <a
+                    class="underline decoration-dashed underline-offset-2 hover:decoration-solid"
+                    href="mailto:gilson@barateza.org">gilson@barateza.org</a
+                >.
+            </p>
+        </footer>
+    </article>
+</BaseLayout>
