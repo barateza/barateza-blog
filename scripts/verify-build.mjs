@@ -29,10 +29,12 @@ const distDir = process.argv[2] ?? 'dist';
 const baselineDir = process.argv[3] ?? null;
 
 /** Expected page surface of this site. */
-// 33 = content pages + the tag index + one page per tag + the two
+// 38 = content pages + the tag index + one page per tag + the two
 // Inbox Organizer pages (/inbox and /inbox/privacy). Bump it when the
 // surface changes on purpose; the count is what catches an accidental loss.
-const EXPECTED_HTML_PAGES = 33;
+// The spread post added one page and four first-time tags (benchmarks,
+// local-ai, gpu, statistics): 33 -> 38.
+const EXPECTED_HTML_PAGES = 38;
 const REQUIRED_FILES = ['rss.xml', 'sitemap-index.xml', 'sitemap-0.xml', 'sitemap.xml', 'robots.txt', 'og-preview.jpg'];
 const MAX_REGIONS_PER_PAGE = 3;
 

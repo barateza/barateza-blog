@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 428" width="760" height="428"><rect x="1" y="1" width="758" height="426" rx="10" fill="#fcfcfd" stroke="#e5e5e8" stroke-width="1"/><g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"><text x="28" y="30" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#3f3f46">Three draws per cell</text><text x="28" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#71717a">checks met, out of each issue’s rubric</text>
+<circle cx="556" cy="44" r="4.6" fill="#2563eb"/><text x="566" y="48" font-size="11" fill="#3f3f46">shipped</text><circle cx="632" cy="44" r="4.6" fill="#d97706"/><text x="642" y="48" font-size="11" fill="#3f3f46">challenger</text>
+<text x="186" y="413" text-anchor="middle" font-size="11" fill="#71717a">0</text>
+<text x="314.5" y="413" text-anchor="middle" font-size="11" fill="#71717a">1</text>
+<line x1="443" y1="82" x2="443" y2="397" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="443" y="413" text-anchor="middle" font-size="11" fill="#71717a">2</text>
+<line x1="571.5" y1="82" x2="571.5" y2="397" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="571.5" y="413" text-anchor="middle" font-size="11" fill="#71717a">3</text>
+<line x1="700" y1="82" x2="700" y2="397" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="700" y="413" text-anchor="middle" font-size="11" fill="#71717a">4</text>
+<text x="314.5" y="391" text-anchor="middle" font-size="11" fill="#71717a">no draw scored below 2</text>
+<rect x="443" y="95.4" width="257" height="3.2" rx="1.6" fill="#2563eb" fill-opacity="0.22"/>
+<circle cx="700" cy="97" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="443" cy="92.5" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="443" cy="101.5" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="101" font-size="10" fill="#71717a">shipped</text>
+<text x="22" y="119" font-size="12" fill="#3f3f46">920<tspan font-size="10" fill="#71717a">&#160;of 4</tspan></text>
+<rect x="443" y="131.4" width="257" height="3.2" rx="1.6" fill="#d97706" fill-opacity="0.22"/>
+<circle cx="443" cy="128.5" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="443" cy="137.5" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="133" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="137" font-size="10" fill="#71717a">challenger</text>
+<circle cx="571.5" cy="170" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="179" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="188" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="183" font-size="10" fill="#71717a">shipped</text>
+<text x="22" y="201" font-size="12" fill="#3f3f46">928<tspan font-size="10" fill="#71717a">&#160;of 3</tspan></text>
+<circle cx="571.5" cy="206" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="215" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="224" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="219" font-size="10" fill="#71717a">challenger</text>
+<rect x="571.5" y="259.4" width="128.5" height="3.2" rx="1.6" fill="#2563eb" fill-opacity="0.22"/>
+<circle cx="700" cy="256.5" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="265.5" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="261" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="265" font-size="10" fill="#71717a">shipped</text>
+<text x="22" y="283" font-size="12" fill="#3f3f46">940<tspan font-size="10" fill="#71717a">&#160;of 4</tspan></text>
+<circle cx="700" cy="288" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="297" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="306" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="301" font-size="10" fill="#71717a">challenger</text>
+<circle cx="700" cy="334" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="343" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="352" r="4.6" fill="#2563eb" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="347" font-size="10" fill="#71717a">shipped</text>
+<text x="22" y="365" font-size="12" fill="#3f3f46">966<tspan font-size="10" fill="#71717a">&#160;of 4</tspan></text>
+<rect x="571.5" y="377.4" width="128.5" height="3.2" rx="1.6" fill="#d97706" fill-opacity="0.22"/>
+<circle cx="700" cy="374.5" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="700" cy="383.5" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<circle cx="571.5" cy="379" r="4.6" fill="#d97706" stroke="#fcfcfd" stroke-width="1.2"/>
+<text x="92" y="383" font-size="10" fill="#71717a">challenger</text></g></svg>
