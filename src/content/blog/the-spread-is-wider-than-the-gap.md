@@ -30,9 +30,13 @@ Nothing about the setup changed between those runs, because the model samples. T
 
 Sampling is the smaller part of it. A cell is not one answer but sixty or seventy of them, chained: the model calls a tool, the tool returns a stack trace or a diff, and the next step is conditioned on what came back. Two runs that diverge at step four do not meet again at step sixty. The runs I logged took between 40 and 90 steps and a median of about forty-seven minutes before they stopped or hit the hour.
 
-Running longer did not mean scoring higher. The eight draws that used the whole hour scored anywhere from two checks to four, and the fastest run in the study, at 21 minutes, met every check on its issue. On 920 every draw spent the full hour, and the scores still split two and four. Whatever was separating those runs, it was not the effort in them.
+Time on the clock did not separate the draws. On 920 all six runs spent the full hour and still scored between two checks and four, so whatever was separating them was not the effort in them. Across the study the eight runs that reached the hour scored from two to four, and the fastest run, at 21 minutes, met every check on its issue.
+
+Longer runs did score slightly lower overall. That association is confounded: 920 is both the slowest issue and the issue where most checks go missing, so I cannot separate the two, and I am not claiming time as a cause.
 
 ![When each draw stopped, by issue: all six 920 draws sit on the 60-minute limit with scores from two to four, while the other issues mostly finish earlier and mostly meet every check](/k3/elapsed.svg)
+
+The 920 draws also split by what they touched. The four that missed checks edited one or two files and added between 89 and 201 lines; the two that met every check edited four and nine. Six runs is not a mechanism, but it points at a different question than time does: not how long the model worked, but how far the change reached.
 
 ## The result
 
