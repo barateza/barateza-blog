@@ -30,6 +30,10 @@ Nothing about the setup changed between those runs, because the model samples. T
 
 Sampling is the smaller part of it. A cell is not one answer but sixty or seventy of them, chained: the model calls a tool, the tool returns a stack trace or a diff, and the next step is conditioned on what came back. Two runs that diverge at step four do not meet again at step sixty. The runs I logged took between 40 and 90 steps and a median of about forty-seven minutes before they stopped or hit the hour.
 
+Running longer did not mean scoring higher. The eight draws that used the whole hour scored anywhere from two checks to four, and the fastest run in the study, at 21 minutes, met every check on its issue. On 920 every draw spent the full hour, and the scores still split two and four. Whatever was separating those runs, it was not the effort in them.
+
+![When each draw stopped, by issue: all six 920 draws sit on the 60-minute limit with scores from two to four, while the other issues mostly finish earlier and mostly meet every check](/k3/elapsed.svg)
+
 ## The result
 
 All twenty-four cells produced a score, and none had to be thrown out. The table keeps the three draws separate, because the draws are the finding.

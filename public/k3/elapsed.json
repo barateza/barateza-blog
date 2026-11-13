@@ -1,0 +1,246 @@
+{
+  "study": "k=3 replicate study, 24 cells, RTX 4070 SUPER, 2026-11-11/12",
+  "note": "minutes = wall clock from meta.txt started/finished; capped = the 3600s cell limit was reached",
+  "cells": [
+    {
+      "issue": 920,
+      "arm": "challenger",
+      "cell": "B-920-r1",
+      "minutes": 60.0,
+      "checks": 2,
+      "of": 4,
+      "files": 2,
+      "capped": true
+    },
+    {
+      "issue": 920,
+      "arm": "challenger",
+      "cell": "B-920-r2",
+      "minutes": 60.0,
+      "checks": 2,
+      "of": 4,
+      "files": 2,
+      "capped": true
+    },
+    {
+      "issue": 920,
+      "arm": "challenger",
+      "cell": "B-920-r3",
+      "minutes": 60.0,
+      "checks": 4,
+      "of": 4,
+      "files": 9,
+      "capped": true
+    },
+    {
+      "issue": 920,
+      "arm": "shipped",
+      "cell": "A-920-r1",
+      "minutes": 60.0,
+      "checks": 4,
+      "of": 4,
+      "files": 4,
+      "capped": true
+    },
+    {
+      "issue": 920,
+      "arm": "shipped",
+      "cell": "A-920-r2",
+      "minutes": 60.0,
+      "checks": 2,
+      "of": 4,
+      "files": 1,
+      "capped": true
+    },
+    {
+      "issue": 920,
+      "arm": "shipped",
+      "cell": "A-920-r3",
+      "minutes": 60.0,
+      "checks": 2,
+      "of": 4,
+      "files": 1,
+      "capped": true
+    },
+    {
+      "issue": 928,
+      "arm": "challenger",
+      "cell": "B-928-r1",
+      "minutes": 30.6,
+      "checks": 3,
+      "of": 3,
+      "files": 4,
+      "capped": false
+    },
+    {
+      "issue": 928,
+      "arm": "challenger",
+      "cell": "B-928-r2",
+      "minutes": 21.5,
+      "checks": 3,
+      "of": 3,
+      "files": 5,
+      "capped": false
+    },
+    {
+      "issue": 928,
+      "arm": "challenger",
+      "cell": "B-928-r3",
+      "minutes": 49.5,
+      "checks": 3,
+      "of": 3,
+      "files": 5,
+      "capped": false
+    },
+    {
+      "issue": 928,
+      "arm": "shipped",
+      "cell": "A-928-r1",
+      "minutes": 48.4,
+      "checks": 3,
+      "of": 3,
+      "files": 6,
+      "capped": false
+    },
+    {
+      "issue": 928,
+      "arm": "shipped",
+      "cell": "A-928-r2",
+      "minutes": 60.0,
+      "checks": 3,
+      "of": 3,
+      "files": 9,
+      "capped": true
+    },
+    {
+      "issue": 928,
+      "arm": "shipped",
+      "cell": "A-928-r3",
+      "minutes": 46.8,
+      "checks": 3,
+      "of": 3,
+      "files": 7,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "challenger",
+      "cell": "B-940-r1",
+      "minutes": 33.4,
+      "checks": 4,
+      "of": 4,
+      "files": 4,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "challenger",
+      "cell": "B-940-r2",
+      "minutes": 25.4,
+      "checks": 4,
+      "of": 4,
+      "files": 3,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "challenger",
+      "cell": "B-940-r3",
+      "minutes": 48.6,
+      "checks": 4,
+      "of": 4,
+      "files": 3,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "shipped",
+      "cell": "A-940-r1",
+      "minutes": 49.1,
+      "checks": 4,
+      "of": 4,
+      "files": 4,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "shipped",
+      "cell": "A-940-r2",
+      "minutes": 41.2,
+      "checks": 3,
+      "of": 4,
+      "files": 3,
+      "capped": false
+    },
+    {
+      "issue": 940,
+      "arm": "shipped",
+      "cell": "A-940-r3",
+      "minutes": 49.7,
+      "checks": 4,
+      "of": 4,
+      "files": 4,
+      "capped": false
+    },
+    {
+      "issue": 966,
+      "arm": "challenger",
+      "cell": "B-966-r1",
+      "minutes": 49.1,
+      "checks": 4,
+      "of": 4,
+      "files": 5,
+      "capped": false
+    },
+    {
+      "issue": 966,
+      "arm": "challenger",
+      "cell": "B-966-r2",
+      "minutes": 60.0,
+      "checks": 3,
+      "of": 4,
+      "files": 8,
+      "capped": true
+    },
+    {
+      "issue": 966,
+      "arm": "challenger",
+      "cell": "B-966-r3",
+      "minutes": 46.2,
+      "checks": 4,
+      "of": 4,
+      "files": 8,
+      "capped": false
+    },
+    {
+      "issue": 966,
+      "arm": "shipped",
+      "cell": "A-966-r1",
+      "minutes": 42.3,
+      "checks": 4,
+      "of": 4,
+      "files": 6,
+      "capped": false
+    },
+    {
+      "issue": 966,
+      "arm": "shipped",
+      "cell": "A-966-r2",
+      "minutes": 45.7,
+      "checks": 4,
+      "of": 4,
+      "files": 5,
+      "capped": false
+    },
+    {
+      "issue": 966,
+      "arm": "shipped",
+      "cell": "A-966-r3",
+      "minutes": 41.1,
+      "checks": 4,
+      "of": 4,
+      "files": 8,
+      "capped": false
+    }
+  ]
+}

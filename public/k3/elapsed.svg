@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 344" width="760" height="344"><rect x="1" y="1" width="758" height="342" rx="10" fill="#fcfcfd" stroke="#e5e5e8" stroke-width="1"/><g font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"><text x="28" y="30" font-size="12.5" fill="#3f3f46">When the runs stopped</text>
+<text x="28" y="48" font-size="11" fill="#71717a">one dot per draw, by issue; filled means every check on that issue was met</text>
+<circle cx="470" cy="44" r="4.4" fill="#2563eb"/><text x="480" y="48" font-size="11" fill="#3f3f46">full marks</text><circle cx="566" cy="44" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/><text x="576" y="48" font-size="11" fill="#3f3f46">missed one</text>
+<line x1="104" y1="84" x2="104" y2="280" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="104" y="298" text-anchor="middle" font-size="11" fill="#71717a">0</text>
+<line x1="240.4" y1="84" x2="240.4" y2="280" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="240.4" y="298" text-anchor="middle" font-size="11" fill="#71717a">15</text>
+<line x1="376.8" y1="84" x2="376.8" y2="280" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="376.8" y="298" text-anchor="middle" font-size="11" fill="#71717a">30</text>
+<line x1="513.2" y1="84" x2="513.2" y2="280" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="513.2" y="298" text-anchor="middle" font-size="11" fill="#71717a">45</text>
+<line x1="649.6" y1="84" x2="649.6" y2="280" stroke="#a1a1aa" stroke-opacity="0.18" stroke-width="1"/>
+<text x="649.6" y="298" text-anchor="middle" font-size="11" fill="#71717a">60</text>
+<text x="104" y="316" font-size="11" fill="#71717a">minutes until the run stopped</text>
+<line x1="649.6" y1="76" x2="649.6" y2="280" stroke="#a1a1aa" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="649.6" y="316" text-anchor="end" font-size="10.5" fill="#71717a">the hour, where every 920 draw stopped</text>
+<text x="34" y="100" font-size="13" fill="#3f3f46">920</text>
+<text x="34" y="115" font-size="10" fill="#71717a">6 draws</text>
+<circle cx="649.6" cy="78.5" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<circle cx="649.6" cy="85.5" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<circle cx="649.6" cy="92.5" r="4.4" fill="#2563eb"/>
+<circle cx="649.6" cy="99.5" r="4.4" fill="#2563eb"/>
+<circle cx="649.6" cy="106.5" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<circle cx="649.6" cy="113.5" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<text x="34" y="156" font-size="13" fill="#3f3f46">928</text>
+<text x="34" y="171" font-size="10" fill="#71717a">6 draws</text>
+<circle cx="382.3" cy="152" r="4.4" fill="#2563eb"/>
+<circle cx="299.5" cy="152" r="4.4" fill="#2563eb"/>
+<circle cx="554.1" cy="152" r="4.4" fill="#2563eb"/>
+<circle cx="544.1" cy="152" r="4.4" fill="#2563eb"/>
+<circle cx="649.6" cy="152" r="4.4" fill="#2563eb"/>
+<circle cx="529.6" cy="152" r="4.4" fill="#2563eb"/>
+<text x="34" y="212" font-size="13" fill="#3f3f46">940</text>
+<text x="34" y="227" font-size="10" fill="#71717a">6 draws</text>
+<circle cx="407.7" cy="208" r="4.4" fill="#2563eb"/>
+<circle cx="335" cy="208" r="4.4" fill="#2563eb"/>
+<circle cx="546" cy="208" r="4.4" fill="#2563eb"/>
+<circle cx="550.5" cy="208" r="4.4" fill="#2563eb"/>
+<circle cx="478.7" cy="208" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<circle cx="556" cy="208" r="4.4" fill="#2563eb"/>
+<text x="34" y="268" font-size="13" fill="#3f3f46">966</text>
+<text x="34" y="283" font-size="10" fill="#71717a">6 draws</text>
+<circle cx="550.5" cy="264" r="4.4" fill="#2563eb"/>
+<circle cx="649.6" cy="264" r="4.4" fill="#fcfcfd" stroke="#d97706" stroke-width="1.8"/>
+<circle cx="524.1" cy="264" r="4.4" fill="#2563eb"/>
+<circle cx="488.7" cy="264" r="4.4" fill="#2563eb"/>
+<circle cx="519.6" cy="264" r="4.4" fill="#2563eb"/>
+<circle cx="477.8" cy="264" r="4.4" fill="#2563eb"/></g></svg>
