@@ -16,7 +16,7 @@ seo:
     alt: The spread is wider than the gap
 ---
 
-On task 920 the shipped model passed all four of the repository's acceptance checks, then two, then two. Three runs, identical weights, identical settings, same machine. The challenger went two, two, four on the same task, and whatever separates the two checkpoints is smaller than the spread between two runs of one of them.
+On task 920 the shipped model passed all four of the repository's acceptance checks, then two, then two. Three runs, identical weights, identical settings, same machine. The challenger went two, two, four on the same task.
 
 That is awkward for a benchmark post, because a leaderboard is built from exactly one of those runs. So I ran twenty-four cells and wrote down what would count as a difference before any of the numbers existed.
 
@@ -50,7 +50,7 @@ All twenty-four cells produced a score, and none had to be thrown out. The table
 | 966 | 4 | 4, 4, 4 | 4, 3, 4 |
 | total | 15 | 13.33 | 13.33 |
 
-Two issues moved, one draw each, in opposite directions. The totals are 13.33 of 15 for each arm, averaged over the four per-issue means, which is the number the pre-registered rule compares. Summed raw it is 40 of 45 apiece, the same proportion.
+Two issues moved, one draw each, in opposite directions, and the two movements cancelled. The totals are 13.33 of 15 for each arm, averaged over the four per-issue means, which is the number the pre-registered rule compares. Summed raw it is 40 of 45 apiece, the same proportion. The spread inside a single model, which reaches two checks on 920, is wider than the gap between the two.
 
 ## The rule
 
@@ -58,7 +58,9 @@ The rule was written on 11 November, before the first cell ran, and it has two h
 
 The two-check floor came from the design's power estimate. The design assumed a per-cell spread of 0.58 checks and, with three draws per cell, a standard error of 0.95 for the difference between the arms. On that estimate a two-check gap is the smallest the study could resolve, so a one-check gap is printed as unresolved rather than as a result.
 
-The measured difference was 0.00 checks. The shipped model stays. The challenger was not shown to be better, and it was not shown to be worse.
+The measured difference was 0.00 checks. The shipped model stays. The challenger was not shown to be better, and it was not shown to be worse. The arms were indistinguishable on quality, so the tie goes to the simpler deployment: one 8.7 GB file against 7.6 GB plus a 1.4 GB draft.
+
+The rule only speaks to gaps of two checks or more. It says nothing about a one-check gap, which is the size most quantization comparisons claim, and nothing outside these four issues. Higher precision is out of reach anyway, since a 4-bit or 6-bit build of the same model does not fit in 12 GB. One difference between the arms is worth stating: the shipped model ran without the speculative-decoding flags its production configuration uses, which changes how fast tokens come out rather than which checks pass.
 
 ## The noise floor was optimistic
 
@@ -67,6 +69,8 @@ The 0.58 was measured on four earlier draws of the noisy issue, which scored 4, 
 Run the same calculation on what the study produced and the standard error of the difference is 1.249 checks, not 0.95. The power estimate was 30 percent optimistic, which moves the smallest resolvable gap from two checks to about two and a half and leaves a 95 percent interval of plus or minus 1.86 checks on the difference. A two-check gap is now marginal, and a one-check gap was never going to be visible.
 
 The other three issues were stable. 928 returned 3, 3, 3 for both arms. 940 and 966 moved once each, in opposite directions, and neither moved far enough to matter on its own. All of the excess noise sits in 920, on both models.
+
+A future run of this bench should budget for two and a half checks rather than two. On 920 a single draw is worth anywhere from two checks to four, which is why the table above keeps three.
 
 ## Four runs that produced nothing
 
@@ -83,16 +87,6 @@ None of the four was scored as zero. Each became a missing draw and was replaced
 Passing the rubric is not the same as leaving the repository working. Every cell also runs the surrounding test suites, and 6 of the 24 draws broke something there: all three 920 draws for the shipped model, one 928 draw, and two 920 draws for the challenger.
 
 The earlier single-draw runs had no regressions in the eight that carry a summary. What changed here is the output budget: it went from 8,192 tokens to 16,384 before this study, the diffs reached 11 files, and a patch that spans eleven files is more likely to break something nearby.
-
-## What this settles, and what it does not
-
-The shipped quantization stays. The arms were indistinguishable on quality, and the shipped one is the simpler deployment: a single 8.7 GB file against 7.6 GB plus a 1.4 GB draft.
-
-The number I will reuse is the noise floor. On this bench, with these four issues, the standard error of a difference between two models is 1.25 checks rather than the 0.95 the design assumed, so any future comparison should budget for a gap of about two and a half. On issue 920 a single run is worth somewhere between 2 and 4 checks.
-
-Nothing here speaks to a one-check gap, which is the size most quantization comparisons claim, or to anything outside these four issues. It also says nothing about higher precision: a 4-bit or 6-bit build of the same model does not fit in 12 GB, so the comparison is confined to the two lowest-bit options that do.
-
-The shipped model also ran without the speculative-decoding flags its production configuration uses. That changes how fast tokens come out rather than which checks pass, and the two arms were not identical in that respect.
 
 ## How to check any of this
 
